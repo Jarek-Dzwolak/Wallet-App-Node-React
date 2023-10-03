@@ -1,6 +1,6 @@
 import React from "react";
 
-function Dashboard() {
+function Home() {
   return (
     <div>
       <p>To jest Dashboard. Sprawdź, czy działa!</p>
@@ -8,4 +8,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default Home;
