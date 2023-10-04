@@ -18,7 +18,7 @@ function RegisterForm() {
       register({
         email: form.elements.email.value,
         password: form.elements.password.value,
-        name: form.elements.firstName.value,
+        firstName: form.elements.firstName.value,
       })
     );
 
