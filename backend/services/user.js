@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const gravatar = require("gravatar");
 
-const usersSchema = new mongoose.Schema({
+const usersSchema = new Schema({
   password: {
     type: String,
     required: [true, "Password is required"],
@@ -12,7 +11,7 @@ const usersSchema = new mongoose.Schema({
     required: [true, "Email is required"],
     unique: true,
   },
-  fristName: {
+  firstName: {
     type: String,
     required: [true, "Name is required"],
   },
