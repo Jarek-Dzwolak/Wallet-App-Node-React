@@ -2,13 +2,14 @@ const express = require("express");
 const User = require("../backend/services/user");
 const app = express();
 const cors = require("cors");
-// Ustawienie portu, na którym serwer będzie nasłuchiwać
+const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 3000;
+
+const secretKey = "jajco"
 
 const logger = require("morgan");
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
 
-// Middleware - przykład obsługi żądań JSON
 app.use(express.json());
 app.use(logger(formatsLogger));
 app.use(cors());
@@ -20,16 +21,33 @@ app.post("/register", async (req, res) => {
       firstName: req.body.firstName,
     });
     await user.save();
-    // Jeśli operacja zakończyła się sukcesem, zwróć odpowiedź
     res.status(200).json({ message: "Rejestracja zakończona sukcesem" });
   } catch (error) {
-    // Obsługa błędów - zwracamy status 500 (Internal Server Error) i komunikat o błędzie
     console.error("Błąd podczas rejestracji:", error);
     res.status(500).json({ error: "Wystąpił błąd podczas rejestracji" });
   }
 });
 
-// Start serwera na określonym porcie
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
+
+    if (!user || user.password !== password) {
+      return res
+        .status(401)
+        .json({ error: "Nieprawidłowe dane logowania" });
+    }
+    const token = jwt.sign({ userId: user._id }, secretKey, {
+      expiresIn: "1h",
+    });
+    res.status(200).json({ email, password, token }); 
+  } catch (error) {
+    console.error("Błąd podczas logowania:", error);
+    res.status(500).json({ error: "Wystąpił błąd podczas logowania" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
 });
