@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import css from "./Login.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { isLogin } from "../../Redux/operations";
+import {Navigate} from "react-router-dom"
 
 import wallet from "../../icons/wallet.svg";
 import email from "../../icons/email.svg";
@@ -18,9 +19,15 @@ function Login() {
     email: '',
     password: '',
   });
-  const handleSubmit = (e) => {
+  const [isLogged, setIsLogged] = useState(false); // Dodaj stan isLogged
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(isLogin(formData));
+    const loginSuccess = await dispatch(isLogin(formData)); // Oczekuj na zalogowanie i uzyskaj wynik
+
+    if (loginSuccess) {
+      setIsLogged(true); // Jeśli zalogowano pomyślnie, ustaw isLogged na true
+    }
   };
 
   const handleInputChange = (e) => {
@@ -30,6 +37,10 @@ function Login() {
       [name]: value,
     });
   };
+
+  if (isLogged) { console.log("Przekierowanie zachodzi!");
+    return <Navigate to="/home" />;
+  }
 
   return (
     <>

@@ -42,7 +42,7 @@ export const isLogin = (userData) => async (dispatch) => {
     if (response.ok
     ) { const data = await response.json();
       const {user, token} = data
-      dispatch(loginUser({user, token}))
+      dispatch(loginUser({user, Token:token}))
       console.log("Logowanie udane. Dane użytkownika:", data);
       return true;
 
