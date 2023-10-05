@@ -15,6 +15,10 @@ const usersSchema = new Schema({
     type: String,
     required: [true, "Name is required"],
   },
+  token: {
+    type: String,
+    default: null,
+  }
 });
 const User = mongoose.model("User", usersSchema);
 

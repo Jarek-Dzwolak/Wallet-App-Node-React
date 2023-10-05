@@ -1,25 +1,48 @@
-import React from "react";
+import React, {useState} from "react";
 import css from "./Login.module.css";
+import { useDispatch } from "react-redux";
+import { isLogin } from "../../Redux/operations";
 
 import wallet from "../../icons/wallet.svg";
 import email from "../../icons/email.svg";
 import password from "../../icons/password.svg";
 
+
 function Login() {
+ const dispatch = useDispatch()
+  const [ formData, setFormData ] = useState({
+    email:"",
+    password:"",
+  })
+  const handleSubmit = (e) => {
+    e.preventDefault();
+   dispatch(isLogin(formData));
+  }
+
+   const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
   return (
     <div className={css.login_container}>
       <div className={css.login_title}>
         <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
         <h2 className={css.wallet_title}>Wallet</h2>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className={css.input_container}>
           <input
             className={css.input}
-            type="text"
+            type="email"
             placeholder="E-mail"
-            name=""
+            name="email"
             required=""
+            value={formData.email}
+            onChange={handleInputChange}
           />
           <img className={css.input_icon} src={email} alt="email icon" />
         </div>
@@ -27,10 +50,12 @@ function Login() {
         <div className={css.input_container}>
           <input
             className={css.input}
-            type="text"
+            type="password"
             placeholder="Password"
-            name=""
+            name="password"
             required=""
+            value={formData.password}
+            onChange={handleInputChange}
           />
           <img className={css.input_icon} src={password} alt="password icon" />
         </div>
