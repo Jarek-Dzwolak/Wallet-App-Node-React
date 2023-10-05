@@ -1,11 +1,14 @@
 import React from "react";
+import Curriences from "../../components/Curriences/Curriences";
+import Navigation from "../../components/Navigation/Navigation";
 
 function Currencies() {
-  return (
-    <div>
-      <p>To jest Dashboard. Sprawdź, czy działa!</p>
-    </div>
-  );
+	return (
+		<div>
+			<Navigation />
+			<Curriences />
+		</div>
+	);
 }
 
 export default Currencies;

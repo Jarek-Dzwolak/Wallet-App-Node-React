@@ -1,0 +1,15 @@
+.walletBox {
+	padding: 0;
+	margin: 20px;
+	border-radius: 30px;
+	list-style: none;
+	background: #4a56e2;
+}
+
+.walletKeys {
+	display: flex;
+	justify-content: space-around;
+	padding: 10px 15px;
+	color: white;
+	font-weight: 700;
+}

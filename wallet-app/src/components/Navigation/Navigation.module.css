@@ -1,0 +1,13 @@
+.navigation {
+	padding: 12px 62px;
+	margin: 0;
+	display: flex;
+	gap: 44px;
+	justify-content: center;
+	list-style: none;
+}
+
+.navigationIcon {
+	cursor: pointer;
+	width: 38px;
+}

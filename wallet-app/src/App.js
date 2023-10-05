@@ -7,15 +7,15 @@ import Statistic from "../src/pages/Statstic/Statstic";
 import Currencies from "../src/pages/Currencies/Currencies";
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/register" element={<RegisterForm />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/home" element={<Home />} />
-      <Route path="/statistic" element={<Statistic />} />
-      <Route path="/currencies" element={<Currencies />} />
-    </Routes>
-  );
+	return (
+		<Routes>
+			<Route path="/register" element={<RegisterForm />} />
+			<Route path="/login" element={<Login />} />
+			<Route path="/home" element={<Home />} />
+			<Route path="/statistic" element={<Statistic />} />
+			<Route path="/currencies" element={<Currencies />} />
+		</Routes>
+	);
 }
 
 export default App;
