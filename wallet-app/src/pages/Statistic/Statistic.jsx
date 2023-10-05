@@ -1,11 +1,12 @@
 import React from "react";
+import Navigation from "../../components/Navigation/Navigation";
 
 function Statstic() {
-  return (
-    <div>
-      <p>To jest Statstic. Sprawdź, czy działa!</p>
-    </div>
-  );
+	return (
+		<div>
+			<Navigation />
+		</div>
+	);
 }
 
 export default Statstic;

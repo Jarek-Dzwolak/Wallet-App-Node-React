@@ -1,0 +1,40 @@
+.list {
+	display: flex;
+	gap: 8px;
+	flex-direction: column;
+	padding: 0;
+	margin: 0 20px;
+	margin-bottom: 8px;
+	border-radius: 10px;
+	background-color: #fff;
+	list-style: none;
+}
+
+.table {
+	margin-top: 32px;
+}
+
+.item {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 20px;
+	border-bottom: 1px solid #dcdcdf;
+}
+
+.deleteBtn {
+	border-radius: 18px;
+	background-color: #24cca7;
+	border: none;
+	padding: 4px 12px 4px 12px;
+	color: white;
+	cursor: pointer;
+}
+
+.editBtn {
+	border: none;
+	background-color: white;
+	display: flex;
+	gap: 2px;
+	align-items: center;
+	cursor: pointer;
+}

@@ -1,0 +1,22 @@
+.balanceField {
+	min-width: 280px;
+	margin: 0 20px;
+	padding: 20px 0px;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	border-radius: 30px;
+	background-color: white;
+}
+
+.title {
+	display: flex;
+	justify-self: start;
+	font-size: 12px;
+	color: #a6a6a6;
+}
+
+.amount {
+	font-weight: 700;
+	font-size: 30px;
+}
