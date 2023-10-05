@@ -102,3 +102,13 @@
   font-size: 12px;
   color: #007bff;
 }
+
+.route_link {
+  list-style: none;
+  text-decoration: none;
+}
+
+.route_link:hover,
+.route_link:focus {
+  color: #007bff;
+}

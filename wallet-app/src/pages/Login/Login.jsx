@@ -6,6 +6,7 @@ import { isLogin } from "../../Redux/operations";
 import wallet from "../../icons/wallet.svg";
 import email from "../../icons/email.svg";
 import password from "../../icons/password.svg";
+import { Link } from "react-router-dom";
 
 
 function Login() {
@@ -66,7 +67,7 @@ function Login() {
       <div className={css.register_container}>
         <button className={css.register_button}>REGISTER</button>
         <p className={css.register_button_description}>
-          If you don't already have an account, register here!
+          If you don't already have an account, <Link className={css.route_link}>register here</Link>!
         </p>
       </div>
     </div>

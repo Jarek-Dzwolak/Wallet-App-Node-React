@@ -96,3 +96,12 @@
   line-height: 1.44;
   font-weight: 200;
 }
+
+.route_link {
+  text-decoration: none;
+}
+
+.route_link:hover,
+.route_link:focus {
+  color: #007bff;
+}

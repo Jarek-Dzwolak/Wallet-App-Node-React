@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import css from "./RegisterForm.module.css";
 import { useDispatch } from "react-redux";
 import { register } from "../../Redux/operations";
+import { Link } from 'react-router-dom';
+
 
 import wallet from "../../icons/wallet.svg";
 import email from "../../icons/email.svg";
@@ -133,7 +135,7 @@ function RegisterForm() {
         <div className={css.login_container}>
           <button className={css.login_button}>LOG IN</button>
           <p className={css.login_button_description}>
-            If you already have an account, login here!
+            If you already have an account, <Link to="/login" className={css.route_link}>login here</Link>!
           </p>
         </div>
       </form>
