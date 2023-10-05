@@ -19,6 +19,7 @@ function App() {
       <Route
         path="/statistic"
         element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+      
       />
       <Route
         path="/currencies"
