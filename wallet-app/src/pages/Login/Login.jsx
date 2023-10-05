@@ -1,16 +1,14 @@
-import React, {useState} from "react";
-import css from "./Login.module.css";
-import { useDispatch } from "react-redux";
-import { isLogin } from "../../Redux/operations";
-
-import wallet from "../../icons/wallet.svg";
-import email from "../../icons/email.svg";
-import password from "../../icons/password.svg";
+import React, { useState } from 'react';
+import css from './Login.module.css';
+import { useDispatch } from 'react-redux';
+import { isLogin } from '../../Redux/operations';
+import { Navigate } from 'react-router-dom'; // Dodaj Navigate
+import wallet from '../../icons/wallet.svg';
+import email from '../../icons/email.svg';
+import password from '../../icons/password.svg';
 import frame from '../../icons/frame.svg';
 import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
-
-
 
 function Login() {
   const dispatch = useDispatch();
@@ -18,9 +16,15 @@ function Login() {
     email: '',
     password: '',
   });
-  const handleSubmit = (e) => {
+  const [isLogged, setIsLogged] = useState(false); // Dodaj stan isLogged
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(isLogin(formData));
+    const loginSuccess = await dispatch(isLogin(formData)); // Oczekuj na zalogowanie i uzyskaj wynik
+
+    if (loginSuccess) {
+      setIsLogged(true); // Jeśli zalogowano pomyślnie, ustaw isLogged na true
+    }
   };
 
   const handleInputChange = (e) => {
@@ -30,6 +34,10 @@ function Login() {
       [name]: value,
     });
   };
+
+  if (isLogged) {
+    return <Navigate to="/home" />;
+  }
 
   return (
     <>
