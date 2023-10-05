@@ -1,29 +1,55 @@
 const express = require("express");
 const User = require("../backend/services/user");
 const app = express();
-
-// Ustawienie portu, na którym serwer będzie nasłuchiwać
+const cors = require("cors");
+const jwt = require('jsonwebtoken')
 const port = process.env.PORT || 3000;
 
-// Middleware - przykład obsługi żądań JSON
+const secretKey = "jajco"
+
+const logger = require("morgan");
+const formatsLogger = app.get("env") === "development" ? "dev" : "short";
+
 app.use(express.json());
-
-// Przykład routingu
-app.get("/", (req, res) => {
-  res.send("Witaj na mojej aplikacji Express!");
+app.use(logger(formatsLogger));
+app.use(cors());
+app.post("/register", async (req, res) => {
+  try {
+    const user = new User({
+      email: req.body.email,
+      password: req.body.password,
+      firstName: req.body.firstName,
+    });
+    await user.save();
+    res.status(200).json({ message: "Rejestracja zakończona sukcesem" });
+  } catch (error) {
+    console.error("Błąd podczas rejestracji:", error);
+    res.status(500).json({ error: "Wystąpił błąd podczas rejestracji" });
+  }
 });
 
-app.post("/api/register", (req, res) => {
-  const user = new User({
-    email: req.body.email,
-    password: req.body.password,
-    fristName: req.body.fristName,
-  });
+app.post("/login", async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await User.findOne({ email });
 
-  res.status(200).json({ message: "Rejestracja zakończona sukcesem" });
+    if (!user || user.password !== password) {
+      return res
+        .status(401)
+        .json({ error: "Nieprawidłowe dane logowania" });
+    }
+    const token = jwt.sign({ userId: user._id }, secretKey, {
+      expiresIn: "1h",
+    });
+    res.status(200).json({ email, password, token }); 
+  } catch (error) {
+    console.error("Błąd podczas logowania:", error);
+    res.status(500).json({ error: "Wystąpił błąd podczas logowania" });
+  }
 });
 
-// Start serwera na określonym porcie
 app.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
 });
+
+module.exports = app;
