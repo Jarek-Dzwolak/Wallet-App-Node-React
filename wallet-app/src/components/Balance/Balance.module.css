@@ -1,22 +1,29 @@
 .balanceField {
-	min-width: 280px;
-	margin: 0 20px;
-	padding: 20px 0px;
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	border-radius: 30px;
-	background-color: white;
+  min-width: 280px;
+  margin: 0 20px;
+  padding: 20px 0px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 30px;
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .balanceField {
+    min-width: 336px;
+    padding: 12px 0;
+  }
 }
 
 .title {
-	display: flex;
-	justify-self: start;
-	font-size: 12px;
-	color: #a6a6a6;
+  display: flex;
+  justify-self: start;
+  font-size: 12px;
+  color: #a6a6a6;
 }
 
 .amount {
-	font-weight: 700;
-	font-size: 30px;
+  font-weight: 700;
+  font-size: 30px;
 }
