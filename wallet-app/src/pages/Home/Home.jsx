@@ -7,20 +7,6 @@ import PopUpBtn from '../../components/PopUpBtn/PopUpBtn';
 import Curriences from '../../components/Curriences/Curriences';
 import Styles from './Home.module.css';
 
-// function Home() {
-//   return (
-//     <div className={Styles.balance}>
-//       <Header />
-//       <Navigation />
-//       <Balance />
-//       <Curriences />
-//       <IncomeExpenseTable />
-//       <PopUpBtn />
-//     </div>
-//   );
-// }
-
-// export default Home;
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 

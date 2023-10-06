@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import css from "./RegisterForm.module.css";
-import { useDispatch } from "react-redux";
-import { register } from "../../Redux/operations";
+import React, { useState } from 'react';
+import css from './RegisterForm.module.css';
+import { useDispatch } from 'react-redux';
+import { register } from '../../Redux/operations';
 
-import wallet from "../../icons/wallet.svg";
-import email from "../../icons/email.svg";
-import password from "../../icons/password.svg";
-import user from "../../icons/user.svg";
+import wallet from '../../icons/wallet.svg';
+import email from '../../icons/email.svg';
+import password from '../../icons/password.svg';
+import user from '../../icons/user.svg';
 
 function RegisterForm() {
   const dispatch = useDispatch();
@@ -19,13 +19,13 @@ function RegisterForm() {
         email: form.elements.email.value,
         password: form.elements.password.value,
         firstName: form.elements.firstName.value,
-      })
+      }),
     );
 
     form.reset();
   };
 
-  const [passwordStrength, setPasswordStrength] = useState("");
+  const [passwordStrength, setPasswordStrength] = useState('');
   const [passwordLength, setPasswordLength] = useState(0);
 
   const handlePasswordChange = (event) => {
@@ -35,18 +35,18 @@ function RegisterForm() {
     setPasswordLength(length);
 
     if (length === 0) {
-      setPasswordStrength("");
+      setPasswordStrength('');
     } else if (length <= 6) {
-      setPasswordStrength("weak");
+      setPasswordStrength('weak');
     } else if (length <= 12) {
-      setPasswordStrength("average");
+      setPasswordStrength('average');
     } else {
-      setPasswordStrength("strong");
+      setPasswordStrength('strong');
     }
   };
 
   const isRegistrationAllowed =
-    passwordStrength === "average" || passwordStrength === "strong";
+    passwordStrength === 'average' || passwordStrength === 'strong';
 
   return (
     <div className={css.register_container}>
@@ -92,13 +92,14 @@ function RegisterForm() {
               style={{
                 width:
                   passwordLength === 0
-                    ? "0%"
+                    ? '0%'
                     : passwordLength <= 6
-                    ? "33%"
+                    ? '33%'
                     : passwordLength <= 10
-                    ? "66%"
-                    : "100%",
-              }}></div>
+                    ? '66%'
+                    : '100%',
+              }}
+            ></div>
           </div>
           {passwordStrength && (
             <div className={css.password_strength_text}>{passwordStrength}</div>

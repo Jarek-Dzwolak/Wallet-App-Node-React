@@ -4,40 +4,6 @@ import email from '../../icons/email.svg';
 import { NavLink } from 'react-router-dom';
 import './Navigation.css';
 
-// const Navigation = () => {
-//   return (
-//     <ul className={styles.navigation}>
-//       <li>
-//         <NavLink className={styles.link} to="/home">
-//           <img
-//             className={styles.navigationIcon}
-//             src={email}
-//             alt="home nav icon"
-//           ></img>
-//         </NavLink>
-//       </li>
-//       <li>
-//         <NavLink className={styles.link} to="/statistic">
-//           <img
-//             className={styles.navigationIcon}
-//             src={email}
-//             alt="statistic nav icon"
-//           ></img>
-//         </NavLink>
-//       </li>
-//       <li>
-//         <NavLink className={styles.link} to="/currencies">
-//           <img
-//             className={styles.navigationIcon}
-//             src={email}
-//             alt="currencies nav icon"
-//           ></img>
-//         </NavLink>
-//       </li>
-//     </ul>
-//   );
-// };
-
 function Navigation() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
