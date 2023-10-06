@@ -1,15 +1,59 @@
 .walletBox {
-	padding: 0;
-	margin: 20px;
-	border-radius: 30px;
-	list-style: none;
-	background: #4a56e2;
+  padding: 0;
+  padding-bottom: 52px;
+  margin: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  list-style: none;
+  background: #4a56e2;
+  color: #fff;
+}
+
+@media (min-width: 768px) {
+  .walletBox {
+    width: 336px;
+    margin: 0;
+    padding-bottom: 66px;
+  }
 }
 
 .walletKeys {
-	display: flex;
-	justify-content: space-around;
-	padding: 10px 15px;
-	color: white;
-	font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 15px;
+  font-weight: 700;
+  align-items: center;
+  background: #6a74e5;
+}
+
+@media (min-width: 768px) {
+  .walletKeys {
+    padding: 0 15px;
+    height: 50px;
+    font-size: 18px;
+  }
+}
+
+.walletValues {
+  color: #fff;
+  display: flex;
+  justify-content: space-around;
+}
+
+.walletBg {
+  position: absolute;
+}
+
+.walletValuesBox {
+  padding: 12px 0 0 0;
+  position: relative;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .walletValuesBox {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 }

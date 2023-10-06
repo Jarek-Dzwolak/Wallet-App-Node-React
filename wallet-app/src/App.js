@@ -14,17 +14,20 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route
         path="/home"
-        element={<PrivateRoute redirectTo="/login" component={<Home />} />}
+        // element={<PrivateRoute redirectTo="/login" component={<Home />} />}
+        element={<Home />}
       />
       <Route
         path="/statistic"
-        element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+        // element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+        element={<Statistic />}
       />
       <Route
         path="/currencies"
-        element={
-          <PrivateRoute redirectTo="/login" component={<Currencies />} />
-        }
+        // element={
+        //   <PrivateRoute redirectTo="/login" component={<Currencies />} />
+        // }
+        element={<Currencies />}
       />
     </Routes>
   );

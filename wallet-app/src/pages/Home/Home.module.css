@@ -1,3 +1,20 @@
 .balance {
-	background-color: #e7eaf2;
+  background-color: #e7eaf2;
+}
+
+.tabletViewBox1 {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-around;
+  gap: 32px;
+}
+
+.tabletViewBox2 {
+  gap: 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabletViewBox3 {
+  height: 182px;
 }
