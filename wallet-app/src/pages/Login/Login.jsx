@@ -13,6 +13,7 @@ import elipse2 from '../../icons/elipse2.svg';
 
 
 
+
 function Login() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
@@ -92,9 +93,6 @@ function Login() {
 
           <div className={css.register_container}>
             <button className={css.register_button}>REGISTER</button>
-            <p className={css.register_button_description}>
-              If you don't already have an account, register here!
-            </p>
           </div>
         </div>
       </div>
