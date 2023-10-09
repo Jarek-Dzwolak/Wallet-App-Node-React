@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
-import ChartComponent from "./Chart"; // Adjust the import path accordingly
+import  ChartComponent  from "../../components/Chart/Chart"; 
 import css from "./Statistic.module.css";
 import wallet from "../../icons/wallet.svg";
 import homeIcon from "../../icons/home.svg";
@@ -10,7 +10,7 @@ import arrowIcon from "../../icons/arrow.svg";
 const accountBalance = 1000;
 
 function Statistic() {
-  // Zdefiniuj chartOptions używając useMemo
+ 
   const chartOptions = useMemo(
     () => ({
       responsive: true,
@@ -21,7 +21,7 @@ function Statistic() {
         },
       },
     }),
-    []
+    
   );
 
   // Użyj useMemo do zainicjowania categoryData
