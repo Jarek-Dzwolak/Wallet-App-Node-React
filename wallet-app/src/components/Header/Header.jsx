@@ -8,24 +8,33 @@ const Header = () => {
   // Użyj useSelector, aby pobrać imię z magazynu Redux
   const firstName = useSelector((state) => state.user.username);
 
+  const handleClick = () => {
+    localStorage.removeItem('accessToken');
+    window.location.reload();
+  };
+
   return (
     <div className={css.wrapper}>
       <div className={css.wrapper_frist}>
         <img className={css.icons_wallet} src={wallet} alt="wallet icon" />
-        <span
-          className={css.wallet_title}
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          Wallet
-        </span>
+        <span className={css.wallet_title}>Wallet</span>
       </div>
       <div className={css.wrapper_second}>
-        <span className={css.name}>{firstName}Name</span>
-        <img className={css.icons_exit1} src={exit1} alt="wallet icon" />
+        <span className={css.name}>{firstName}</span>
+        <img
+          className={css.icons_exit1}
+          onClick={handleClick}
+          style={{ cursor: 'pointer' }}
+          src={exit1}
+          alt="wallet icon"
+        />
+        <span
+          style={{ cursor: 'pointer' }}
+          onClick={handleClick}
+          className={css.Exit_span}
+        >
+          Exit
+        </span>
       </div>
     </div>
   );
