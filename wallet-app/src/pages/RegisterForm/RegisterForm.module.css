@@ -3,6 +3,13 @@
   margin: 0 auto;
   text-align: center;
   padding: 20px;
+  background-color: transparent;
+}
+.registerformframe,
+.title,
+.elipse1registerform,
+.elipse2registerform {
+  display: none;
 }
 
 .register_title {
@@ -10,6 +17,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  margin-top: 114px;
 }
 
 .wallet_icon {
@@ -17,13 +25,24 @@
   height: 24px;
   margin-right: 10px;
 }
-
 .wallet_title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding-top: 4px;
 }
 
 .input_container {
   position: relative;
   margin-bottom: 40px;
+  margin-left: 20px;
+  font-family: 'circe', sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  width: 280px;
+  border-radius: 20px;
+  padding: 13px 0;
+  line-height: 1.44;
 }
 
 .input {
@@ -49,6 +68,7 @@
   transform: translateY(-50%);
   left: 10px;
 }
+
 .input:focus::placeholder {
   color: transparent;
 }
@@ -76,7 +96,6 @@
 .register_button:focus {
   background-color: #45a049;
 }
-
 .login_button {
   width: 100%;
   padding: 13px;
@@ -91,14 +110,95 @@
   transition: background-color 0.3s;
 }
 
-.login_button_description {
-  font-size: 12px;
-  line-height: 1.44;
-  font-weight: 200;
-}
-
 .password_strength {
   margin-top: 5px;
   font-size: 12px;
   color: #007bff;
+}
+
+@media screen and (min-width: 768px) {
+  .register_container {
+    display: flex;
+    flex-direction: column;
+    width: 533px;
+    max-width: none;
+    background-color: white;
+    z-index: 0;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    border-radius: 20px;
+    margin-bottom: 196px;
+    padding: 0;
+  }
+  .input {
+    margin-left: 0;
+  }
+  .wrapper {
+    background-color: #e7eaf2;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .box {
+    width: 533px;
+    padding-top: 60px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .title {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
+  .registerformframe1 {
+    display: block;
+    width: 260px;
+    height: 250px;
+  }
+  .elipseregisterform {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  .elipse1registerform {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+  }
+  .register_title {
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .input_container {
+    width: 410px;
+  }
+
+  .register_button {
+    width: 300px;
+  }
+  .login_button {
+    width: 300px;
+    border-radius: 20px;
+    margin-bottom: 66px;
+  }
+
+  .wallet_title {
+    font-size: 30px;
+  }
 }
