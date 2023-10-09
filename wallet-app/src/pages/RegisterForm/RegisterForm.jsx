@@ -162,7 +162,7 @@ function RegisterForm() {
                             <button className={css.login_button}>LOG IN</button>
                         </div>
                     </form>
-                </div>{' '}
+                </div>
             </div>
         </>
     )
