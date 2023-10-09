@@ -12,22 +12,19 @@ function App() {
     <Routes>
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/login" element={<Login />} />
-      <Route
-        path="/home"
-        // element={<PrivateRoute redirectTo="/login" component={<Home />} />}
-        element={<Home />}
-      />
+      <Route element={<PrivateRoute />}>
+        <Route path="/home" element={<Home />} />
+      </Route>
+
       <Route
         path="/statistic"
-        // element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
-        element={<Statistic />}
+        element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
       />
       <Route
         path="/currencies"
-        // element={
-        //   <PrivateRoute redirectTo="/login" component={<Currencies />} />
-        // }
-        element={<Currencies />}
+        element={
+          <PrivateRoute redirectTo="/login" component={<Currencies />} />
+        }
       />
     </Routes>
   );

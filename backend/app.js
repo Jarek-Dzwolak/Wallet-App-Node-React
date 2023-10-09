@@ -2,10 +2,10 @@ const express = require("express");
 const User = require("../backend/services/user");
 const app = express();
 const cors = require("cors");
-const jwt = require('jsonwebtoken')
+const jwt = require("jsonwebtoken");
 const port = process.env.PORT || 3000;
 
-const secretKey = "jajco"
+const secretKey = "jajco";
 
 const logger = require("morgan");
 const formatsLogger = app.get("env") === "development" ? "dev" : "short";
@@ -34,14 +34,12 @@ app.post("/login", async (req, res) => {
     const user = await User.findOne({ email });
 
     if (!user || user.password !== password) {
-      return res
-        .status(401)
-        .json({ error: "Nieprawidłowe dane logowania" });
+      return res.status(401).json({ error: "Nieprawidłowe dane logowania" });
     }
     const token = jwt.sign({ userId: user._id }, secretKey, {
       expiresIn: "1h",
     });
-    res.status(200).json({ email, password, token }); 
+    res.status(200).json({ token: token, username: user.firstName });
   } catch (error) {
     console.error("Błąd podczas logowania:", error);
     res.status(500).json({ error: "Wystąpił błąd podczas logowania" });
