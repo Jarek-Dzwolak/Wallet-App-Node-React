@@ -143,7 +143,6 @@ function RegisterForm() {
                                 alt="user icon"
                             />
                         </div>
-
                         <div>
                             {!isRegistrationAllowed && (
                                 <p className={css.registration_disabled}>
