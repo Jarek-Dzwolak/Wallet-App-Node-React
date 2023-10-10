@@ -5,9 +5,7 @@ import exit1 from '../../icons/exit1.svg';
 import css from './Header.module.css';
 
 const Header = () => {
-  // Użyj useSelector, aby pobrać imię z magazynu Redux
   const firstName = useSelector((state) => state.user.username);
-
   const handleClick = () => {
     localStorage.removeItem('accessToken');
     window.location.reload();
