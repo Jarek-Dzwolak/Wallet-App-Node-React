@@ -61,7 +61,7 @@ const ChartComponent = ({ chartData }) => {
 
   return (
     <div style={{ position: "relative" }} className={css.diagramContainer}>
-      <canvas ref={chartRef}></canvas>
+      <canvas ref={chartRef} style={{}}></canvas>
       <div
         style={{
           position: "absolute",

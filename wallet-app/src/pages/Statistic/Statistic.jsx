@@ -1,4 +1,5 @@
 import React, { useState, useMemo, useEffect } from 'react';
+
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import ChartComponent from '../../components/Chart/Chart';
@@ -6,7 +7,12 @@ import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 import CategoryItem from '../../components/Category/CategoryItem';
 import Balance from '../../components/Balance/Balance';
 import Curriences from '../../components/Curriences/Curriences';
+
 import css from './Statistic.module.css';
+
+import elipse1 from '../../icons/elipse1.svg';
+import elipse2 from '../../icons/elipse2.svg';
+
 
 const accountBalance = '2150';
 
@@ -61,42 +67,64 @@ function Statistic() {
     <div>
       <Header />
       <div className={css.statistic_container}>
-        {shouldRenderCurriences ? (
-          <div className={css.tabletViewBox1}>
-            <div className={css.tabletViewBox2}>
-              <Navigation />
-              <Balance />
+        <div className={css.statistic_container_desktop_left}>
+          {shouldRenderCurriences ? (
+            <div className={css.tabletViewBox1}>
+              <div className={css.tabletViewBox2}>
+                <Navigation />
+                <Balance />
+              </div>
+              <div className={css.tabletViewBox3}>
+                <Curriences />
+              </div>
             </div>
-            <div className={css.tabletViewBox3}>
-              <Curriences />
-            </div>
-          </div>
-        ) : null}
-
-        <div className={css.statistic_containerActual}>
-          <div>
-            <h1>Statistics</h1>
-          </div>
-
-          <ChartComponent chartData={{ ...chartData, accountBalance }} />
-
-          <DropdownMenu
-            selected={selectedMonth}
-            options={[
-              'January', 'February', 'March', 'April', 'May', 'June',
-              'July', 'August', 'September', 'October', 'November', 'December',
-            ]}
-            onOptionSelect={handleMonthSelect}
-          />
-
-          <CategoryItem
-            labels={chartData.labels}
-            datasets={chartData.datasets}
-            accountBalance={accountBalance}
-            categoryData={categoryData}
-          />
+          ) : null}
         </div>
-      </div>
+
+        <div className={css.statistic_container_desktop_right}>
+          <div className={css.statistic_containerActual}>
+            <div className={css.statistic_container_left}>
+              <div className={css.h1_container}>
+                <h1>Statistics</h1>
+            </div>
+            
+    
+              <ChartComponent chartData={{ ...chartData, accountBalance }} />
+            </div>
+  
+            <div className={css.statistic_container_right}>
+              <DropdownMenu
+                selected={selectedMonth}
+                options={[
+                  'January',
+                  'February',
+                  'March',
+                  'April',
+                  'May',
+                  'June',
+                  'July',
+                  'August',
+                  'September',
+                  'October',
+                  'November',
+                  'December',
+                ]}
+                onOptionSelect={handleMonthSelect}
+              />
+    
+              <CategoryItem
+                labels={chartData.labels}
+                datasets={chartData.datasets}
+                accountBalance={accountBalance}
+                categoryData={categoryData}
+              />
+              <div className={css.bg}></div>
+          <img className={css.elipse1} src={elipse1} alt="elipse orange" />
+          <img className={css.elipse2} src={elipse2} alt="elipse purple" />
+            </div>
+            </div>
+        </div>
+        </div>
     </div>
   );
 }
