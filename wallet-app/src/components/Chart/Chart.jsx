@@ -1,42 +1,58 @@
 import React, { useEffect, useRef, useState } from "react";
 import Chart from "chart.js/auto";
+import css from "./Chart.module.css";
 
 const ChartComponent = ({ chartData }) => {
   const chartRef = useRef(null);
   const chartInstance = useRef(null);
   const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 });
 
+  const handleResize = () => {
+    const canvas = chartRef.current;
+    if (canvas) {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+      setCanvasDimensions({ width: canvas.width, height: canvas.height });
+      
+    }
+  };
+
   useEffect(() => {
+    if (!chartData || !chartData.labels || !chartData.datasets) {
+      return null;
+    }
+
     if (chartInstance.current) {
       chartInstance.current.destroy();
     }
 
-    const myChartRef = chartRef.current.getContext("2d");
+    const myChartRef = chartRef.current?.getContext("2d");
 
-    chartInstance.current = new Chart(myChartRef, {
-      type: "doughnut",
-      data: chartData,
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: {
-            display: false,
+    if (myChartRef) {
+      chartInstance.current = new Chart(myChartRef, {
+        type: "doughnut",
+        data: chartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              enabled: false,
+            },
           },
-          tooltip: {
-            enabled: false,
-          },
-          cutout: "70%",
+          cutout: '70%',
         },
-      },
-    });
+      });
+    }
 
-    const canvasWidth = chartRef.current.width;
-    const canvasHeight = chartRef.current.height;
-
-    setCanvasDimensions({ width: canvasWidth, height: canvasHeight });
+    window.addEventListener("resize", handleResize);
 
     return () => {
+      window.removeEventListener("resize", handleResize);
+
       if (chartInstance.current) {
         chartInstance.current.destroy();
       }
@@ -44,7 +60,7 @@ const ChartComponent = ({ chartData }) => {
   }, [chartData]);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative" }} className={css.diagramContainer}>
       <canvas ref={chartRef}></canvas>
       <div
         style={{
@@ -57,8 +73,8 @@ const ChartComponent = ({ chartData }) => {
           color: "#000",
         }}
       >
-        <div style={{ fontSize: "10px", fontWeight: "bold" }}>
-          Saldo konta: {chartData.accountBalance} PLN
+        <div style={{ fontSize: "18px", fontWeight: "700" }} className={css.diagramValue}>
+          ₴ {chartData.accountBalance}
         </div>
       </div>
     </div>

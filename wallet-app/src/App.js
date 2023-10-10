@@ -12,13 +12,13 @@ function App() {
     <Routes>
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/login" element={<Login />} />
-      <Route element={<PrivateRoute />}>
+      {/* <Route element={<PrivateRoute />}> */}
         <Route path="/home" element={<Home />} />
-      </Route>
-
+      {/* </Route> */}
       <Route
         path="/statistic"
-      element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+        // element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+        element={<Statistic></Statistic>}
       />
       <Route
         path="/currencies"
