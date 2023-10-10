@@ -1,7 +1,10 @@
 import styles from './Curriences.module.css';
 import bg from '../../icons/curriencesBg.svg';
+import bgTablet from '../../icons/curriencesBgTablet.svg';
+import bgDesktop from '../../icons/curriencesBg.svg';
 
 const Curriences = () => {
+  const isTabletScreen = window.innerWidth >= 480 && window.innerWidth < 1280;
   return (
     <ul className={styles.walletBox}>
       <li className={styles.walletKeys}>
@@ -10,7 +13,7 @@ const Curriences = () => {
         <span className={styles.item}>Sale</span>
       </li>
       <ul className={styles.walletValuesBox}>
-        <img className={styles.walletBg} src={bg} alt="bg"></img>
+        <img className={styles.walletBg} src={bgTablet} alt="bg"></img>
         <li className={styles.walletValues}>
           <span className={styles.item}>USD</span>
           <span className={styles.item}>27.55</span>
