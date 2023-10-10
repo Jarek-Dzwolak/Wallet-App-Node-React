@@ -17,8 +17,8 @@ function App() {
       {/* </Route> */}
       <Route
         path="/statistic"
-        // element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
-        element={<Statistic></Statistic>}
+        element={<PrivateRoute redirectTo="/login" component={<Statistic />} />}
+
       />
       <Route
         path="/currencies"

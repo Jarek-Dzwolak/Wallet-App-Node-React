@@ -12,6 +12,8 @@ import elipse2 from '../../icons/elipse2.svg';
 import { authApi } from '../../api/auth.services';
 import { setUsername } from '../../Redux/userSlice';
 
+
+
 function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -89,9 +91,6 @@ function Login() {
 
           <div className={css.register_container}>
             <button className={css.register_button}>REGISTER</button>
-            <p className={css.register_button_description}>
-              If you don't already have an account, register here!
-            </p>
           </div>
         </div>
       </div>
