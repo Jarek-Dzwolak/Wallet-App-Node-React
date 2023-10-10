@@ -1,0 +1,237 @@
+[33mcommit 964edbe8c5290e9dee37fc1f91be6b163c264a30[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: KarolinaKuszpa <117316629+KarolinaKuszpa@users.noreply.github.com>
+Date:   Mon Oct 9 21:04:11 2023 +0200
+
+    registerform
+
+[33mcommit 2a333c894733876c15afc93167617ac45315b091[m
+Merge: 98ab6e3 d074c73
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Mon Oct 9 20:19:28 2023 +0200
+
+    Merge pull request #21 from Jarek-Dzwolak/Dorota/features6
+    
+    changes
+
+[33mcommit d074c7357c7b86730a0b33523e6c265514b58101[m[33m ([m[1;31morigin/Dorota/features6[m[33m)[m
+Author: Dorota Heczko <117163329+DorotaHeczko@users.noreply.github.com>
+Date:   Mon Oct 9 20:18:40 2023 +0200
+
+    changes
+
+[33mcommit 98ab6e350424c6d7dcf1f3d84af49056667dc3f7[m
+Merge: 561b601 7a80d5a
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Mon Oct 9 19:32:29 2023 +0200
+
+    Merge pull request #16 from Jarek-Dzwolak/Kuba/Features2
+    
+    Kuba/features2
+
+[33mcommit 7a80d5a1b16ed1f5b9fbfe3a65d90f78338ed650[m
+Author: Jakub Piksa <kuba.piksa@wp.pl>
+Date:   Mon Oct 9 19:31:47 2023 +0200
+
+    Update App.js
+
+[33mcommit 8bd6b2aecb508d206d08bd9a0afc10a565b9f14a[m
+Author: Jakub Piksa <kuba.piksa@wp.pl>
+Date:   Mon Oct 9 19:29:56 2023 +0200
+
+    Chart update
+
+[33mcommit ec3ecf5258ec388d847b1fbb553eff73b537a7cf[m
+Author: Jakub Piksa <kuba.piksa@wp.pl>
+Date:   Mon Oct 9 18:43:47 2023 +0200
+
+    Chart title centered
+
+[33mcommit 561b601b89b7aa351c2ce58a79a87226d548a9f3[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Sat Oct 7 00:57:20 2023 +0200
+
+    add files
+
+[33mcommit 1faf97e01e78de17cd2cbd44d8652361e6e62156[m
+Merge: c0e4c9b 4ecde82
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Fri Oct 6 15:36:55 2023 +0200
+
+    Merge pull request #13 from Jarek-Dzwolak/Bartek/featuresV1
+    
+    work in progress home page styling
+
+[33mcommit c0e4c9bfac18048ba512dbc16a6f0fcfde8b68d3[m
+Merge: 888c81d f266b65
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Fri Oct 6 15:32:44 2023 +0200
+
+    Merge pull request #12 from Jarek-Dzwolak/origin/K4pe7u/login2
+    
+    login -> home
+
+[33mcommit 4ecde820fee304a4337ce26f224888421bb1b2c7[m[33m ([m[1;31morigin/Bartek/featuresV1[m[33m)[m
+Author: BartlomiejPop <bartlomiejpoprawa01@gmail.com>
+Date:   Fri Oct 6 12:47:23 2023 +0200
+
+    work in progress home page styling
+
+[33mcommit f266b652cbc3d24016dae6a73a16a1b9d40a7570[m[33m ([m[1;31morigin/origin/K4pe7u/login2[m[33m)[m
+Author: Juliusz Janicki <juliusz.janicki@gmail.com>
+Date:   Thu Oct 5 23:30:10 2023 +0200
+
+    login -> home
+
+[33mcommit 888c81d0f7324f198060eedd7fcab77317c9b7f6[m
+Merge: b3a716f ff89965
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Thu Oct 5 20:57:42 2023 +0200
+
+    Merge pull request #9 from Jarek-Dzwolak/Bartek/home
+    
+    Bartek/home
+
+[33mcommit ff89965688f4f4ea2f89144a2c7fabcad655b804[m[33m ([m[1;31morigin/Bartek/home[m[33m)[m
+Merge: 5c5dc49 b3a716f
+Author: BartlomiejPop <bartlomiejpoprawa01@gmail.com>
+Date:   Thu Oct 5 20:56:47 2023 +0200
+
+    Merge branch 'main' into Bartek/home
+
+[33mcommit 5c5dc49b11c84fa6fcb628f0ca7efbe5938a8491[m
+Author: BartlomiejPop <bartlomiejpoprawa01@gmail.com>
+Date:   Thu Oct 5 20:39:06 2023 +0200
+
+    Bartek/home
+
+[33mcommit b3a716f9863ed906c15c9c6434dd6f89687ae832[m
+Merge: 33cef01 20803a8
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Thu Oct 5 20:26:23 2023 +0200
+
+    Merge pull request #6 from Jarek-Dzwolak/Dorota/features
+    
+    layout
+
+[33mcommit 20803a8bc754a8a8fa514ddf308b5d42ffdcd639[m[33m ([m[1;31morigin/Dorota/features[m[33m)[m
+Author: Dorota Heczko <117163329+DorotaHeczko@users.noreply.github.com>
+Date:   Thu Oct 5 20:23:41 2023 +0200
+
+    layout
+
+[33mcommit 33cef015436fa52e61ec9bf5a226483b56a167da[m
+Merge: 5b0962f 161e4ba
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Thu Oct 5 19:10:14 2023 +0200
+
+    Merge pull request #5 from Jarek-Dzwolak/origin/K4pe7u/login
+    
+    login redux
+
+[33mcommit 161e4ba0d286e2dd9e78c03cd887f0b2b3729f91[m[33m ([m[1;31morigin/origin/K4pe7u/login[m[33m)[m
+Author: Juliusz Janicki <juliusz.janicki@gmail.com>
+Date:   Thu Oct 5 18:48:13 2023 +0200
+
+    login redux
+
+[33mcommit 5b0962f6cb2907e781629cf754eb8165be52aacf[m
+Merge: 3f3b192 3105195
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Wed Oct 4 20:24:01 2023 +0200
+
+    Merge pull request #4 from Jarek-Dzwolak/Jarek/feturesV2
+    
+    Jarek/fetures v2
+
+[33mcommit 310519563525c6fe1ab654ad82df040b39b6b767[m[33m ([m[1;31morigin/Jarek/feturesV2[m[33m)[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Wed Oct 4 20:18:08 2023 +0200
+
+    changes
+
+[33mcommit f3efb9cd9ccb547a7f6a049ba2ddc2ff4abd54c6[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Wed Oct 4 19:59:48 2023 +0200
+
+    add something
+
+[33mcommit d931b157b8a45082b3cd1559da21d1cfcaafca11[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Tue Oct 3 22:06:58 2023 +0200
+
+    backend and store making
+
+[33mcommit 3f3b19286322f9eec3e3c5d0dcba4834164a6a14[m
+Merge: 2fcd541 f9655e0
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Tue Oct 3 21:27:14 2023 +0200
+
+    Merge pull request #3 from Jarek-Dzwolak/Jarek/FeturesV1
+    
+    some changes
+
+[33mcommit f9655e0c522c9a73dc4623403ad239a70ab9121d[m[33m ([m[1;31morigin/Jarek/FeturesV1[m[33m)[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Tue Oct 3 21:25:26 2023 +0200
+
+    some changes
+
+[33mcommit 2fcd5411cdbea4bd1bfe44a3c46e04cf4ee01dd3[m
+Merge: 949b47f 06cf04a
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Tue Oct 3 21:19:32 2023 +0200
+
+    Merge pull request #2 from Jarek-Dzwolak/karolina/featurev1
+    
+    RegisterForm
+
+[33mcommit 06cf04ad372f16bdda9b5c944ce007f79826aac2[m[33m ([m[1;31morigin/karolina/featurev1[m[33m)[m
+Author: KarolinaKuszpa <117316629+KarolinaKuszpa@users.noreply.github.com>
+Date:   Tue Oct 3 21:13:42 2023 +0200
+
+    RegisterForm
+
+[33mcommit 949b47f42af2207b9935221cdb9eeb0818c2f933[m
+Merge: 5d68040 553da9d
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Tue Oct 3 19:30:24 2023 +0200
+
+    Merge pull request #1 from Jarek-Dzwolak/origin-K4pe7u
+    
+    register / login startup
+
+[33mcommit 553da9dd231955de6e9a9951dee8d1bc0896dfaf[m
+Author: Juliusz Janicki <juliusz.janicki@gmail.com>
+Date:   Tue Oct 3 18:19:57 2023 +0200
+
+    register / login startup
+
+[33mcommit 5d68040abe6c610f0ee030a04f88f41cd6b854c6[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Tue Oct 3 16:17:01 2023 +0200
+
+    backend i working
+
+[33mcommit fc7b61db2cae0c16d92bcc87e0e6c0fbab382639[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Tue Oct 3 15:55:35 2023 +0200
+
+    aa
+
+[33mcommit 1d82630d584e5febe8c797e153af01e56235c8b3[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Tue Oct 3 15:55:13 2023 +0200
+
+    repair mistake witf git ignore
+
+[33mcommit 717cbc1b54147f4844aae8475d87c364f73e1073[m
+Author: Jarek Dzwolak <jaroslawdzwolak@gmail.com>
+Date:   Mon Oct 2 21:55:22 2023 +0200
+
+    Make base project
+
+[33mcommit cf16b2697f8d78fb8c64f6e8bd1c220f3c7cd4f9[m
+Author: Jarek <117066732+Jarek-Dzwolak@users.noreply.github.com>
+Date:   Mon Oct 2 19:54:51 2023 +0200
+
+    Initial commit
