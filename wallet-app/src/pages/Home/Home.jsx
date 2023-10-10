@@ -8,10 +8,12 @@ import Curriences from '../../components/Curriences/Curriences';
 import Styles from './Home.module.css';
 import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
+import TransactionModal from '../../components/TransactionModal/TransactionModal';
+import plus from '../../icons/plus.svg';
 
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
+  const [openModal, setOpenModal] = useState(false);
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -34,7 +36,9 @@ function Home() {
 
   return (
     <div className={Styles.balance}>
+      <TransactionModal open={openModal} onClose={() => setOpenModal(false)} />
       <Header />
+
       {showTabletView ? (
         <div>
           <div className={Styles.bg}></div>
@@ -51,7 +55,14 @@ function Home() {
           </div>
           <div>
             <IncomeExpenseTable />
-            <PopUpBtn />
+            <div className={Styles.btn}>
+              <img
+                src={plus}
+                onClick={() => setOpenModal(true)}
+                className={Styles.icon}
+                alt="plus icon"
+              />
+            </div>
           </div>
         </div>
       ) : showDesktopView ? (
@@ -66,7 +77,14 @@ function Home() {
           </div>
           <div>
             <IncomeExpenseTable />
-            <PopUpBtn />
+            <div className={Styles.btn}>
+              <img
+                src={plus}
+                onClick={() => setOpenModal(true)}
+                className={Styles.icon}
+                alt="plus icon"
+              />
+            </div>
           </div>
         </div>
       ) : (
@@ -75,7 +93,14 @@ function Home() {
           <Navigation />
           <Balance />
           <IncomeExpenseTable />
-          <PopUpBtn />
+          <div className={Styles.btn}>
+            <img
+              src={plus}
+              onClick={() => setOpenModal(true)}
+              className={Styles.icon}
+              alt="plus icon"
+            />
+          </div>
         </div>
       )}
     </div>
