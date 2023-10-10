@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
 import email from '../../icons/email.svg';
 import { NavLink } from 'react-router-dom';
+import homeIcon from '../../icons/home.svg';
+import curriencesIcon from '../../icons/currency.svg';
+import diagramIcon from '../../icons/diagram.svg';
 import './Navigation.css';
+import Home from '../../pages/Home/Home';
 
 function Navigation() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -32,7 +36,7 @@ function Navigation() {
         <NavLink className={styles.link} to="/home">
           <img
             className={styles.navigationIcon}
-            src={email}
+            src={homeIcon}
             alt="home nav icon"
           ></img>{' '}
           {!shouldRenderNavigationItem && (
@@ -44,7 +48,7 @@ function Navigation() {
         <NavLink className={styles.link} to="/statistic">
           <img
             className={styles.navigationIcon}
-            src={email}
+            src={diagramIcon}
             alt="statistic nav icon"
           ></img>
           {!shouldRenderNavigationItem && (
@@ -57,7 +61,7 @@ function Navigation() {
           <NavLink className={styles.link} to="/currencies">
             <img
               className={styles.navigationIcon}
-              src={email}
+              src={curriencesIcon}
               alt="currencies nav icon"
             />
           </NavLink>

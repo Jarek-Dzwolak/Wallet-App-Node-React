@@ -6,6 +6,8 @@ import IncomeExpenseTable from '../../components/IncomeExpenseTable/IncomeExpens
 import PopUpBtn from '../../components/PopUpBtn/PopUpBtn';
 import Curriences from '../../components/Curriences/Curriences';
 import Styles from './Home.module.css';
+import elipse1 from '../../icons/elipse1.svg';
+import elipse2 from '../../icons/elipse2.svg';
 
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -27,26 +29,55 @@ function Home() {
     };
   }, []); // Pusta tablica zależności, aby efekt useEffekt wykonał się tylko raz
 
-  const shouldRenderCurriences = windowWidth >= 768;
+  const showTabletView = windowWidth >= 768 && windowWidth < 1280;
+  const showDesktopView = windowWidth >= 1280;
 
   return (
     <div className={Styles.balance}>
       <Header />
-      {shouldRenderCurriences ? (
-        <div className={Styles.tabletViewBox1}>
-          <div className={Styles.tabletViewBox2}>
+      {showTabletView ? (
+        <div>
+          <div className={Styles.bg}></div>
+          <img className={Styles.elipse1} src={elipse1} alt="elipse orange" />
+          <img className={Styles.elipse2} src={elipse2} alt="elipse purple" />
+          <div className={Styles.tabletViewBox1}>
+            <div className={Styles.tabletViewBox2}>
+              <Navigation />
+              <Balance />
+            </div>
+            <div className={Styles.tabletViewBox3}>
+              <Curriences />
+            </div>
+          </div>
+          <div>
+            <IncomeExpenseTable />
+            <PopUpBtn />
+          </div>
+        </div>
+      ) : showDesktopView ? (
+        <div className={Styles.desktopViewBox1}>
+          <div className={Styles.bg}></div>
+          <img className={Styles.elipse1} src={elipse1} alt="elipse orange" />
+          <img className={Styles.elipse2} src={elipse2} alt="elipse purple" />
+          <div className={Styles.desktopViewBox2}>
             <Navigation />
             <Balance />
-          </div>
-          <div className={Styles.tabletViewBox3}>
             <Curriences />
+          </div>
+          <div>
+            <IncomeExpenseTable />
+            <PopUpBtn />
           </div>
         </div>
       ) : (
-        <Navigation />
+        <div>
+          <div className={Styles.bg}></div>
+          <Navigation />
+          <Balance />
+          <IncomeExpenseTable />
+          <PopUpBtn />
+        </div>
       )}
-      <IncomeExpenseTable />
-      <PopUpBtn />
     </div>
   );
 }
