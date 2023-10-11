@@ -3,11 +3,10 @@ import { fields } from '../IncomeExpenseField/IncomeExpenseField';
 import styles from './IncomeExpense.module.css';
 import editBtn from '../../icons/editBtn.svg';
 
-const IncomeExpenseTable = () => {
+const IncomeExpenseTable = ({ transactions }) => {
   const isWideScreen = window.innerWidth > 768;
   return isWideScreen ? (
     <div>
-      {/* Renderowanie nagłówka tylko dla szerokich ekranów */}
       {isWideScreen && (
         <ul className={styles.listKeys}>
           <li className={styles.desktopItem}>
@@ -28,7 +27,7 @@ const IncomeExpenseTable = () => {
           <li className={styles.desktopItem}></li>
         </ul>
       )}
-      {fields.map((item, index) => (
+      {transactions.map((item, index) => (
         <ul key={index} className={styles.listValues}>
           <li>
             <span>{item.Date}</span>
@@ -58,27 +57,63 @@ const IncomeExpenseTable = () => {
     </div>
   ) : (
     <div className={styles.table}>
-      {fields.map((item) => (
+      {transactions.map((item) => (
         <ul className={styles.list}>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <strong>Date:</strong> <span>{item.Date}</span>
           </li>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <strong>Type:</strong> <span>{item.Type}</span>
           </li>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <strong>Category:</strong> <span>{item.Category}</span>
           </li>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <strong>Comment:</strong> <span>{item.Comment}</span>
           </li>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <strong>Sum:</strong>{' '}
             <span style={{ color: item.Type === '-' ? 'red' : 'green' }}>
               {item.Sum}
             </span>
           </li>
           <li className={styles.item}>
+            <div
+              style={{
+                backgroundColor: item.Type === '-' ? '#ff6596' : '#24CCA7',
+              }}
+              className={styles.colorBox}
+            ></div>
             <button className={styles.deleteBtn}>Delete</button>
             <button className={styles.editBtn}>
               <img src={editBtn} alt="edit button" />
