@@ -1,68 +1,84 @@
-// import React, { useEffect, useRef, useState } from "react";
-// import Chart from "chart.js/auto";
+import React, { useEffect, useRef, useState } from "react";
+import Chart from "chart.js/auto";
+import css from "./Chart.module.css";
 
-// const ChartComponent = ({ chartData }) => {
-//   const chartRef = useRef(null);
-//   const chartInstance = useRef(null);
-//   const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 });
+const ChartComponent = ({ chartData }) => {
+  const chartRef = useRef(null);
+  const chartInstance = useRef(null);
+  const [canvasDimensions, setCanvasDimensions] = useState({ width: 0, height: 0 });
 
-//   useEffect(() => {
-//     if (chartInstance.current) {
-//       chartInstance.current.destroy();
-//     }
+  const handleResize = () => {
+    const canvas = chartRef.current;
+    if (canvas) {
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+      setCanvasDimensions({ width: canvas.width, height: canvas.height });
+      
+    }
+  };
 
-//     const myChartRef = chartRef.current.getContext("2d");
+  useEffect(() => {
+    if (!chartData || !chartData.labels || !chartData.datasets) {
+      return null;
+    }
 
-//     chartInstance.current = new Chart(myChartRef, {
-//       type: "doughnut",
-//       data: chartData,
-//       options: {
-//         responsive: true,
-//         maintainAspectRatio: false,
-//         plugins: {
-//           legend: {
-//             display: false,
-//           },
-//           tooltip: {
-//             enabled: false,
-//           },
-//           cutout: "70%",
-//         },
-//       },
-//     });
+    if (chartInstance.current) {
+      chartInstance.current.destroy();
+    }
 
-//     const canvasWidth = chartRef.current.width;
-//     const canvasHeight = chartRef.current.height;
+    const myChartRef = chartRef.current?.getContext("2d");
 
-//     setCanvasDimensions({ width: canvasWidth, height: canvasHeight });
+    if (myChartRef) {
+      chartInstance.current = new Chart(myChartRef, {
+        type: "doughnut",
+        data: chartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: {
+              display: false,
+            },
+            tooltip: {
+              enabled: false,
+            },
+          },
+          cutout: '70%',
+        },
+      });
+    }
 
-//     return () => {
-//       if (chartInstance.current) {
-//         chartInstance.current.destroy();
-//       }
-//     };
-//   }, [chartData]);
+    window.addEventListener("resize", handleResize);
 
-//   return (
-//     <div style={{ position: "relative" }}>
-//       <canvas ref={chartRef}></canvas>
-//       <div
-//         style={{
-//           position: "absolute",
-//           top: "50%",
-//           left: "50%",
-//           transform: "translate(-50%, -50%)",
-//           textAlign: "center",
-//           width: "100%",
-//           color: "#000",
-//         }}
-//       >
-//         <div style={{ fontSize: "10px", fontWeight: "bold" }}>
-//           Saldo konta: {chartData.accountBalance} PLN
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+    return () => {
+      window.removeEventListener("resize", handleResize);
 
-// export default ChartComponent;
+      if (chartInstance.current) {
+        chartInstance.current.destroy();
+      }
+    };
+  }, [chartData]);
+
+  return (
+    <div style={{ position: "relative" }} className={css.diagramContainer}>
+      <canvas ref={chartRef} style={{}}></canvas>
+      <div
+        style={{
+          position: "absolute",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+          textAlign: "center",
+          width: "100%",
+          color: "#000",
+        }}
+      >
+        <div style={{ fontSize: "18px", fontWeight: "700" }} className={css.diagramValue}>
+          ₴ {chartData.accountBalance}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default ChartComponent;
