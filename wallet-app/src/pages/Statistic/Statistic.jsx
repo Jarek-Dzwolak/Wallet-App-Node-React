@@ -1,5 +1,4 @@
 import React, { useState, useMemo, useEffect } from 'react';
-
 import Header from '../../components/Header/Header';
 import Navigation from '../../components/Navigation/Navigation';
 import ChartComponent from '../../components/Chart/Chart';
@@ -7,14 +6,12 @@ import DropdownMenu from '../../components/DropdownMenu/DropdownMenu';
 import CategoryItem from '../../components/Category/CategoryItem';
 import Balance from '../../components/Balance/Balance';
 import Curriences from '../../components/Curriences/Curriences';
-
 import css from './Statistic.module.css';
-
 import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
 
-
-const accountBalance = '2150';
+const accountBalanceKey = 'accountBalance';
+const expensesKey = 'expenses';
 
 function Statistic() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -59,8 +56,32 @@ function Statistic() {
 
   const shouldRenderCurriences = windowWidth >= 768;
 
+  // LOCAL STORAGE
+  const [accountBalance, setAccountBalance] = useState(() => {
+    const storedBalance = localStorage.getItem(accountBalanceKey);
+    return storedBalance ? parseFloat(storedBalance) : 2400;
+  });
+
+  const [expenses, setExpenses] = useState(() => {
+    const storedExpenses = localStorage.getItem(expensesKey);
+    return storedExpenses ? JSON.parse(storedExpenses) : [];
+  });
+
   const handleMonthSelect = (month) => {
     setSelectedMonth(month);
+
+    
+    const newBalance = calculateNewBalance(); 
+    setAccountBalance(newBalance);
+    localStorage.setItem(accountBalanceKey, newBalance.toString());
+  };
+
+  
+  const calculateNewBalance = () => {
+    const currentBalance = accountBalance; 
+    const expensesTotal = expenses.reduce((total, expense) => total + expense.amount, 0); 
+    const newBalance = currentBalance - expensesTotal; 
+    return newBalance;
   };
 
   return (
@@ -86,12 +107,11 @@ function Statistic() {
             <div className={css.statistic_container_left}>
               <div className={css.h1_container}>
                 <h1>Statistics</h1>
-            </div>
-            
-    
+              </div>
+
               <ChartComponent chartData={{ ...chartData, accountBalance }} />
             </div>
-  
+
             <div className={css.statistic_container_right}>
               <DropdownMenu
                 selected={selectedMonth}
@@ -111,7 +131,7 @@ function Statistic() {
                 ]}
                 onOptionSelect={handleMonthSelect}
               />
-    
+
               <CategoryItem
                 labels={chartData.labels}
                 datasets={chartData.datasets}
@@ -119,12 +139,12 @@ function Statistic() {
                 categoryData={categoryData}
               />
               <div className={css.bg}></div>
-          <img className={css.elipse1} src={elipse1} alt="elipse orange" />
-          <img className={css.elipse2} src={elipse2} alt="elipse purple" />
+              <img className={css.elipse1} src={elipse1} alt="elipse orange" />
+              <img className={css.elipse2} src={elipse2} alt="elipse purple" />
             </div>
-            </div>
+          </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 }
