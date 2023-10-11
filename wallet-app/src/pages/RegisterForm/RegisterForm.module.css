@@ -103,7 +103,9 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
-
+.login_container {
+  padding-bottom: 30px;
+}
 .password_strength {
   margin-top: 5px;
   font-size: 12px;
@@ -121,8 +123,7 @@
   .register_container {
     display: flex;
     flex-direction: column;
-    width: 533px;
-    height: 468px;
+
     max-width: none;
     background-color: white;
     z-index: 0;
@@ -206,8 +207,22 @@
 @media screen and (min-width: 1200px) {
   .wrapper {
     flex-direction: row;
+
+    background: linear-gradient(
+      90deg,
+      rgba(231, 234, 242, 1) 50%,
+      rgba(255, 255, 255, 0.4) 50%
+    );
+  }
+  .elipseregisterform {
+    filter: blur(20px);
   }
 
+  .register_container {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 52px 91px 52px 107px;
+  }
   .text {
     font-size: 20px;
   }
@@ -229,7 +244,7 @@
 
   .title {
     position: absolute;
-    margin-top: 420px;
+    margin-top: calc(452.1px + 31.9px);
     font-size: 30px;
     line-height: 1.5;
     font-weight: 400;
@@ -246,5 +261,9 @@
   .elipse1registerform {
     z-index: 0;
     left: -53.33px;
+  }
+  .registerformframe1 {
+    width: 452.1px;
+    height: 412.6px;
   }
 }
