@@ -5,8 +5,9 @@ import editBtn from '../../icons/editBtn.svg';
 
 const IncomeExpenseTable = ({ transactions }) => {
   const isWideScreen = window.innerWidth > 768;
+  const isDesktopScreen = window.innerWidth > 1279;
   return isWideScreen ? (
-    <div>
+    <div className={isDesktopScreen && styles.desktopScreen}>
       {isWideScreen && (
         <ul className={styles.listKeys}>
           <li className={styles.desktopItem}>
@@ -29,7 +30,7 @@ const IncomeExpenseTable = ({ transactions }) => {
       )}
       {transactions.map((item, index) => (
         <ul key={index} className={styles.listValues}>
-          <li>
+          <li style={{ minWidth: '30px' }}>
             <span>{item.Date}</span>
           </li>
           <li>

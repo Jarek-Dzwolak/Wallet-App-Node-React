@@ -57,6 +57,18 @@
   border-bottom: 1px solid #dcdcdf;
 }
 
+.desktopScreen {
+  height: 100%;
+  padding-left: 69px;
+  border-left: 1px solid#dbdadd;
+}
+
+@media (max-width: 810px) {
+  .listValues {
+    padding: 0;
+  }
+}
+
 .deleteBtn {
   border-radius: 18px;
   background-color: #24cca7;

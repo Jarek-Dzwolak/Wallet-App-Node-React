@@ -4,7 +4,7 @@ import bgTablet from '../../icons/curriencesBgTablet.svg';
 import bgDesktop from '../../icons/curriencesBg.svg';
 
 const Curriences = () => {
-  const isTabletScreen = window.innerWidth >= 480 && window.innerWidth < 1280;
+  const isDesktopScreen = window.innerWidth >= 1280;
   return (
     <ul className={styles.walletBox}>
       <li className={styles.walletKeys}>
