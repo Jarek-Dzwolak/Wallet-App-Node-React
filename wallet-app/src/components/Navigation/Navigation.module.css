@@ -17,7 +17,6 @@
 
 .navigationIcon {
   cursor: pointer;
-  width: 38px;
 }
 
 @media (min-width: 768px) {

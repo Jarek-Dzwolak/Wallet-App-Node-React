@@ -1,65 +1,61 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
-import  ChartComponent  from "../../components/Chart/Chart"; 
-import css from "./Statistic.module.css";
-import wallet from "../../icons/wallet.svg";
-import homeIcon from "../../icons/home.svg";
-import diagramIcon from "../../icons/diagram.svg";
-import currencyIcon from "../../icons/currency.svg";
-import arrowIcon from "../../icons/arrow.svg";
+import React, { useState, useEffect, useRef, useMemo } from 'react';
+import ChartComponent from '../../components/Chart/Chart';
+import css from './Statistic.module.css';
+import wallet from '../../icons/wallet.svg';
+import homeIcon from '../../icons/home.svg';
+import diagramIcon from '../../icons/diagramActiveMobile.svg';
+import currencyIcon from '../../icons/currency.svg';
+import arrowIcon from '../../icons/arrow.svg';
 
 const accountBalance = 1000;
 
 function Statistic() {
- 
-  const chartOptions = useMemo(
-    () => ({
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: {
-          display: false,
-        },
+  const chartOptions = useMemo(() => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        display: false,
       },
-    }),
-    
-  );
+    },
+  }));
 
   // Użyj useMemo do zainicjowania categoryData
   const categoryData = useMemo(
     () => [
-      { category: "Main Expenses", amount: 500 },
-      { category: "Products", amount: 300 },
-      { category: "Car", amount: 200 },
-      { category: "Self care", amount: 100 },
-      { category: "Child care", amount: 150 },
-      { category: "Household products", amount: 250 },
-      { category: "Education", amount: 180 },
-      { category: "Leisure", amount: 350 },
-      { category: "Other Expenses", amount: 120 },
+      { category: 'Main Expenses', amount: 500 },
+      { category: 'Products', amount: 300 },
+      { category: 'Car', amount: 200 },
+      { category: 'Self care', amount: 100 },
+      { category: 'Child care', amount: 150 },
+      { category: 'Household products', amount: 250 },
+      { category: 'Education', amount: 180 },
+      { category: 'Leisure', amount: 350 },
+      { category: 'Other Expenses', amount: 120 },
     ],
-    []
+    [],
   );
 
-  const [selectedMonth, setSelectedMonth] = useState("January");
+  const [selectedMonth, setSelectedMonth] = useState('January');
   const [isMonthListOpen, setIsMonthListOpen] = useState(false);
   const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
   ];
 
-  const [selectedYear, setSelectedYear] = useState("2023"); // domyślny rok
+  const [selectedYear, setSelectedYear] = useState('2023'); // domyślny rok
   const [isYearListOpen, setIsYearListOpen] = useState(false);
-  const years = ["2021", "2022", "2023"]; // dostępne lata
+  const years = ['2021', '2022', '2023']; // dostępne lata
 
   const chartData = useMemo(
     () => ({
@@ -67,21 +63,21 @@ function Statistic() {
         {
           data: categoryData.map((category) => category.amount),
           backgroundColor: [
-            "#FED057",
-            "#FFD8D0",
-            "#FD9498",
-            "#C5BAFF",
-            "#6E78E8",
-            "#4A56E2",
-            "#81E1FF",
-            "#24CCA7",
-            "#00AD84",
+            '#FED057',
+            '#FFD8D0',
+            '#FD9498',
+            '#C5BAFF',
+            '#6E78E8',
+            '#4A56E2',
+            '#81E1FF',
+            '#24CCA7',
+            '#00AD84',
           ],
         },
       ],
       labels: categoryData.map((category) => category.category),
     }),
-    [categoryData]
+    [categoryData],
   );
 
   return (
@@ -183,7 +179,9 @@ function Statistic() {
         </div>
       </div>
 
-      <ChartComponent chartData={{ ...chartData, accountBalance: accountBalance }} />
+      <ChartComponent
+        chartData={{ ...chartData, accountBalance: accountBalance }}
+      />
 
       <div className={css.categoryContainer}>
         <h3>Category</h3>
@@ -202,18 +200,18 @@ function Statistic() {
           <li>
             <span
               className={css.categoryColor}
-              style={{ backgroundColor: "#000" }}
+              style={{ backgroundColor: '#000' }}
             ></span>
-            Expenses:{" "}
+            Expenses:{' '}
             {categoryData.reduce(
               (total, category) => total + category.amount,
-              0
+              0,
             )}
           </li>
           <li>
             <span
               className={css.categoryColor}
-              style={{ backgroundColor: "#000" }}
+              style={{ backgroundColor: '#000' }}
             ></span>
             Income: {/* kwota przychodów */}
           </li>
