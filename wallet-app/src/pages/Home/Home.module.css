@@ -1,7 +1,7 @@
 .bg {
   height: 100%;
   width: 100%;
-  position: absolute;
+  position: fixed;
   z-index: -2;
   background-color: #e7eaf2;
   margin-top: -32px;
