@@ -29,6 +29,14 @@ h1 {
   height: 182px;
 }
 
+.elipse1 {
+  display: none;
+}
+
+.elipse2 {
+  display: none;
+}
+
 /* TABLET */
 
 @media screen and (min-width: 768px) {
@@ -50,10 +58,12 @@ h1 {
 }
 
 /* Desktop */
+
 @media screen and (min-width: 1280px) {
   .statistic_container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: row;
+    justify-content: center;
   }
 
   .statistic_container_desktop_right {
@@ -76,14 +86,15 @@ h1 {
     margin-top: 40px;
     margin-left: 16px;
     margin-right: 69px;
-
     display: flex;
     justify-content: flex-start;
     gap: 30px;
     flex-direction: column;
   }
+
   h1 {
     margin-top: 0px;
+    color: aqua;
   }
 
   .elipse1 {
