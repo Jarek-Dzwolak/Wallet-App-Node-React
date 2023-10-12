@@ -20,7 +20,6 @@ const IncomeExpenseTable = () => {
     const updatedTransactionList = transactions.filter(
       (el) => el !== transactions[index],
     );
-    console.log(updatedTransactionList);
     setTransactionList(updatedTransactionList);
   };
 
