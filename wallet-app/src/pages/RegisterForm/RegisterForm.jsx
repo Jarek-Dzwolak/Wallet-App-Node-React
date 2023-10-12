@@ -53,7 +53,8 @@ function RegisterForm() {
 
   return (
    
-      <div className={css.wrapper}>
+    <div className={css.wrapper}>
+      <div className={css.register_icons}>
         <div className={css.box}>
           <img
             className={css.registerformframe1}
@@ -72,12 +73,13 @@ function RegisterForm() {
           src={elipse1registerform}
           alt="elipse"
         ></img>
+        </div>
         <div className={css.register_container}>
           <div className={css.register_title}>
             <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
             <h2 className={css.wallet_title}>Wallet</h2>
           </div>
-
+<div className={css.register_content_container}>
           <form onSubmit={handleSubmit}>
             <div className={css.input_container}>
               <input
@@ -111,7 +113,12 @@ function RegisterForm() {
                 placeholder="Confirm password"
                 name=""
                 required=""
-                onChange={handlePasswordChange}
+              onChange={handlePasswordChange}
+            />
+            <img
+                className={css.input_icon}
+                src={password}
+                alt="password icon"
               />
               <div className={css.password_strength_bar}>
                 <div
@@ -133,11 +140,6 @@ function RegisterForm() {
                   {passwordStrength}
                 </div>
               )}
-              <img
-                className={css.input_icon}
-                src={password}
-                alt="password icon"
-              />
             </div>
 
             <div className={css.input_container}>
@@ -166,6 +168,7 @@ function RegisterForm() {
             </div>
           </form>
         </div>
+      </div>
       </div>
    
   );
