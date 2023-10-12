@@ -7,9 +7,9 @@ import wallet from '../../icons/wallet.svg';
 import email from '../../icons/email.svg';
 import password from '../../icons/password.svg';
 import user from '../../icons/user.svg';
-// import elipseregisterform from '../../icons/elipseregisterform.svg';
-// import elipse1registerform from '../../icons/elipse1registerform.svg';
-// import registerformframe1 from '../../icons/registerformframe1.svg';
+import elipseregisterform from '../../icons/elipseregisterform.svg';
+import elipse1registerform from '../../icons/elipse1registerform.svg';
+import registerformframe1 from '../../icons/registerformframe1.svg';
 
 function RegisterForm() {
   const dispatch = useDispatch();
@@ -52,24 +52,24 @@ function RegisterForm() {
     passwordStrength === 'average' || passwordStrength === 'strong';
 
   return (
-    <>
+   
       <div className={css.wrapper}>
         <div className={css.box}>
           <img
             className={css.registerformframe1}
-            // src={registerformframe1}
+            src={registerformframe1}
             alt="frame icon"
           ></img>
           <h2 className={css.title}>Finance App</h2>
         </div>
         <img
           className={css.elipseregisterform}
-          // src={elipseregisterform}
+          src={elipseregisterform}
           alt="elipse"
         ></img>
         <img
           className={css.elipse1registerform}
-          // src={elipse1registerform}
+          src={elipse1registerform}
           alt="elipse"
         ></img>
         <div className={css.register_container}>
@@ -167,7 +167,7 @@ function RegisterForm() {
           </form>
         </div>
       </div>
-    </>
+   
   );
 }
 
