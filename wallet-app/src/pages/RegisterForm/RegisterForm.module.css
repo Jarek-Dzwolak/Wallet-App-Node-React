@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
-  margin-top: 114px;
+  margin-top: 32px;
 }
 
 .wallet_icon {
@@ -168,7 +168,7 @@
 
 
 .login_container {
-  padding-bottom: 30px;
+  padding-bottom: 36px;
 }
 .password_strength {
   margin-top: 5px;
@@ -250,10 +250,12 @@
   .register_title {
     align-items: center;
     justify-content: center;
-    margin-top: 0;
+    margin-top: 40px;
   }
   .input_container {
     width: 410px;
+    margin-right: 58.5px;
+    margin-left: 65px;
   }
 
   .register_button {
@@ -265,6 +267,9 @@
 
   .wallet_title {
     font-size: 30px;
+  }
+  .login_container {
+    padding-bottom: 66px;
   }
 }
 
@@ -286,7 +291,7 @@
   .register_container {
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 52px 91px 52px 107px;
+    margin-right: 91px;
   }
   .text {
     font-size: 20px;
@@ -301,7 +306,7 @@
   .register_title {
     align-items: center;
     justify-content: center;
-    margin-top: 0;
+    margin-top: 40px;
   }
   .box {
     position: relative;
@@ -330,5 +335,8 @@
   .registerformframe1 {
     width: 452.1px;
     height: 412.6px;
+  }
+  .login_container {
+    padding-bottom: 66px;
   }
 }
