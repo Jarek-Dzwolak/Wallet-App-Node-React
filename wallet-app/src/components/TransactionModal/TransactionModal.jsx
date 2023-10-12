@@ -1,43 +1,43 @@
 import React, { useState } from 'react';
 import css from './TransactionModal.module.css';
-import DatePicker from 'react-datepicker';
+import close from '../../icons/close.svg';
 
 const TransactionModal = ({ open, onClose }) => {
-  const [selectedDate, setSelectedDate] = useState(null);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
   if (!open) return null;
 
   return (
     <div className={css.overlay}>
       <div className={css.modalContainer}>
-        <h2>Add transaction</h2>
-        <input type="checkbox" />
-        <select>
+        <h2 className={css.tittle}>Add transaction</h2>
+        <img
+          className={css.closeBtn}
+          onClick={onClose}
+          style={{ cursor: 'pointer' }}
+          src={close}
+          alt="wallet icon"
+        />
+        <label className={css.switch}>
+          <input className={css.switch_input} type="checkbox" />
+          <span className={css.slider}></span>
+        </label>
+
+        <select className={css.selectStyle}>
           <option value="Category 1">Category 1</option>
           <option value="Category 2">Category 2</option>
           <option value="Category 3">Category 3</option>
         </select>
         <div className={css.modalContainer2}>
-          <input type="text" placeholder="Wpisz coś" />
-          <DatePicker
-            selected={selectedDate}
-            onChange={handleDateChange}
-            dateFormat="dd/MM/yyyy"
-            isClearable
-            placeholderText="Wybierz datę"
+          <input className={css.valueInput} type="number" placeholder="0.00" />
+          <input
+            className={css.dateInput}
+            type="date"
+            min="2023-01-01"
+            max="2025-04-20"
           />
-          {selectedDate && (
-            <p>Wybrana data: {selectedDate.toLocaleDateString()}</p>
-          )}
         </div>
-        <input type="text" placeholder="Wpisz coś" />
-        <p onClick={onClose} className={css.closeBtn}>
-          X
-        </p>
+        <input className={css.commentInput} type="text" placeholder="Comment" />
+        <button className={css.btn}>ADD</button>
+        <button className={css.btn2}>CANCEL</button>
       </div>
     </div>
   );
