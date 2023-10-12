@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
 .login_container {
   max-width: 320px;
   margin: 0 auto;
   text-align: center;
-
-  
 }
 
 .frame_icon,
@@ -28,10 +26,10 @@
   width: 24px;
   height: 24px;
   margin-right: 10px;
-   padding-top: 4px;
+  padding-top: 4px;
 }
 .wallet_title {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   font-weight: bold;
   padding-top: 4px;
@@ -42,7 +40,7 @@
   position: relative;
   margin-bottom: 30px;
   margin-left: 20px;
-  font-family: "circe", sans-serif;
+  font-family: 'circe', sans-serif;
   font-size: 18px;
   width: 280px;
   border-radius: 20px;
@@ -163,7 +161,7 @@
 
   .title {
     display: inline-block;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 30px;
     font-weight: 400;
   }
@@ -176,7 +174,6 @@
     width: 38px;
     height: 29px;
     margin-right: 11px;
-    
   }
   .elipse1 {
     display: block;
@@ -204,7 +201,7 @@
   }
 
   .register_container {
-    font-family: "circe", sans-serif;
+    font-family: 'circe', sans-serif;
     width: 300px;
   }
   .login_button {
@@ -218,17 +215,15 @@
 
 /* Desktop */
 @media screen and (min-width: 1200px) {
-
   .wrapper {
     flex-direction: row;
     height: 720px;
   }
 
   .login_container {
-margin-top: 136px;
-margin-right: 91px;
-margin-bottom: 116px;
-
+    margin-top: 136px;
+    margin-right: 91px;
+    margin-bottom: 116px;
   }
 
   .text {
@@ -242,15 +237,14 @@ margin-bottom: 116px;
   }
 
   .title {
-   position: absolute;
+    position: absolute;
     bottom: 30px;
-   left: 10px;
+    left: 10px;
     text-align: center;
   }
 
   .elipse1 {
     z-index: 0;
-   
   }
 
   .elipse2 {
@@ -258,7 +252,3 @@ margin-bottom: 116px;
     left: -60px;
   }
 }
-
-
-
-
