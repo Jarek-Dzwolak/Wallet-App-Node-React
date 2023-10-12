@@ -11,8 +11,7 @@ import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
 import { authApi } from '../../api/auth.services';
 import { setUsername } from '../../Redux/userSlice';
-
-
+import Notiflix from 'notiflix';
 
 function Login() {
   const dispatch = useDispatch();
@@ -24,13 +23,27 @@ function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { token, username } = await authApi.loginUser(formData);
-    dispatch(setUsername(username));
-    if (token) {
-      console.log(token);
-      localStorage.setItem('accessToken', token);
-      navigate('/home'); // Jeśli zalogowano pomyślnie, ustaw isLogged na true
+    try {
+      const { token, username } = await authApi.loginUser(formData);
+      dispatch(setUsername(username));
+      if (token) {
+        console.log(token);
+        localStorage.setItem('accessToken', token);
+        Notiflix.Notify.success('Logged in successfully');
+        navigate('/home');
+      }
+    } catch (error) {
+      console.error(error);
+      if (error.response && error.response.status === 401) {
+        Notiflix.Notify.failure('Login error. Email or password is incorrect!');
+      } else {
+        Notiflix.Notify.failure('Login error. Try again.');
+      }
     }
+  };
+  const handleRegisterClick = () => {
+    navigate('/register');
+    Notiflix.Notify.info('You deliberately went to the registration page.');
   };
 
   const handleInputChange = (e) => {
@@ -90,7 +103,12 @@ function Login() {
           </form>
 
           <div className={css.register_container}>
-            <button className={css.register_button}>REGISTER</button>
+            <button
+              className={css.register_button}
+              onClick={handleRegisterClick}
+            >
+              REGISTER
+            </button>
           </div>
         </div>
       </div>

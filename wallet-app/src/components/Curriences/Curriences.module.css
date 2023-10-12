@@ -19,6 +19,18 @@
   }
 }
 
+@media (min-width: 1280px) {
+  .walletBox {
+    position: relative;
+    width: 393px;
+    min-height: 331px;
+    margin: 0;
+    margin-left: 20px;
+    padding-bottom: 0;
+    height: 100%;
+  }
+}
+
 .walletKeys {
   display: flex;
   justify-content: space-around;
@@ -46,6 +58,12 @@
   position: absolute;
 }
 
+@media (min-width: 1280px) {
+  .walletBg {
+    bottom: 0;
+  }
+}
+
 .walletValuesBox {
   padding: 12px 0 0 0;
   position: relative;
@@ -57,5 +75,11 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .walletValuesBox {
+    position: static;
   }
 }
