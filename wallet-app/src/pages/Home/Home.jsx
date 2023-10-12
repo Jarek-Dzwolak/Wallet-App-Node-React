@@ -16,33 +16,54 @@ function Home() {
   const [openModal, setOpenModal] = useState(false);
 
   //Przykładowa tablica danych zapisana do local storage z którego potem pobierane są do wygenerowania tablicy
-  localStorage.setItem(
-    'transactions',
-    JSON.stringify([
-      {
-        Date: '04.01.19',
-        Type: '-',
-        Category: 'Other',
-        Comment: 'Comment',
-        Sum: '300.00',
-      },
-      {
-        Date: '03.01.11',
-        Type: '-',
-        Category: 'Other',
-        Comment: 'Comment',
-        Sum: '500.00',
-      },
-      {
-        Date: '01.01.30',
-        Type: '+',
-        Category: 'Other',
-        Comment: 'Comment',
-        Sum: '20.00',
-      },
-    ]),
-  );
-  const transactions = JSON.parse(localStorage.getItem('transactions'));
+  // localStorage.setItem(
+  //   'transactions',
+  //   JSON.stringify([
+  //     {
+  //       Date: '04.01.19',
+  //       Type: '-',
+  //       Category: 'Other',
+  //       Comment: 'Comment',
+  //       Sum: '300.00',
+  //     },
+  //     {
+  //       Date: '03.01.11',
+  //       Type: '-',
+  //       Category: 'Other',
+  //       Comment: 'Comment',
+  //       Sum: '500.00',
+  //     },
+  //     {
+  //       Date: '01.01.30',
+  //       Type: '+',
+  //       Category: 'Other',
+  //       Comment: 'Comment',
+  //       Sum: '20.00',
+  //     },
+  //     {
+  //       Date: '04.01.09',
+  //       Type: '-',
+  //       Category: 'Other',
+  //       Comment: 'Comment',
+  //       Sum: '300.00',
+  //     },
+  //     {
+  //       Date: '03.01.11',
+  //       Type: '+',
+  //       Category: 'Other',
+  //       Comment: 'Comment',
+  //       Sum: '5010.00',
+  //     },
+  //     {
+  //       Date: '01.01.30',
+  //       Type: '+',
+  //       Category: 'ather',
+  //       Comment: 'Comment',
+  //       Sum: '20.00',
+  //     },
+  //   ]),
+  // );
+  // const transactions = JSON.parse(localStorage.getItem('transactions'));
 
   useEffect(() => {
     const handleResize = () => {
@@ -84,7 +105,7 @@ function Home() {
             </div>
           </div>
           <div>
-            <IncomeExpenseTable transactions={transactions} />
+            <IncomeExpenseTable />
             <div className={Styles.btn}>
               <img
                 src={plus}
@@ -106,7 +127,7 @@ function Home() {
             <Curriences />
           </div>
           <div>
-            <IncomeExpenseTable transactions={transactions} />
+            <IncomeExpenseTable />
             <div className={Styles.btn}>
               <img
                 src={plus}
@@ -122,7 +143,7 @@ function Home() {
           <div className={Styles.bg}></div>
           <Navigation />
           <Balance />
-          <IncomeExpenseTable transactions={transactions} />
+          <IncomeExpenseTable />
           <div className={Styles.btn}>
             <img
               src={plus}
