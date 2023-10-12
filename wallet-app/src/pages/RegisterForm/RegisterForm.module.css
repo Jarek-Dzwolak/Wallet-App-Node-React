@@ -5,12 +5,6 @@
   padding: 20px;
   background-color: transparent;
 }
-.registerformframe,
-.title,
-.elipse1registerform,
-.elipse2registerform {
-  display: none;
-}
 
 .register_title {
   display: flex;
@@ -172,11 +166,29 @@
   transition: background-color 0.3s;
 }
 
+
+.login_container {
+  padding-bottom: 30px;
+}
+.password_strength {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #007bff;
+}
+
+.title,
+.registerformframe1,
+.elipseregisterform,
+.elipse1registerform {
+  display: none;
+}
+
+
 @media screen and (min-width: 768px) {
   .register_container {
     display: flex;
     flex-direction: column;
-    width: 533px;
+
     max-width: none;
     background-color: white;
     z-index: 0;
@@ -214,7 +226,6 @@
     display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-size: 30px;
-    line-height: 1.5;
     font-weight: 400;
   }
   .registerformframe1 {
@@ -250,11 +261,74 @@
   }
   .login_button {
     width: 300px;
-    border-radius: 20px;
-    margin-bottom: 66px;
   }
 
   .wallet_title {
     font-size: 30px;
+  }
+}
+
+/* Desktop */
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    flex-direction: row;
+
+    background: linear-gradient(
+      90deg,
+      rgba(231, 234, 242, 1) 50%,
+      rgba(255, 255, 255, 0.4) 50%
+    );
+  }
+  .elipseregisterform {
+    filter: blur(20px);
+  }
+
+  .register_container {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 52px 91px 52px 107px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .registerformframe1 {
+    position: absolute;
+    width: 452px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .register_title {
+    align-items: center;
+    justify-content: center;
+    margin-top: 0;
+  }
+  .box {
+    position: relative;
+  }
+
+  .title {
+    position: absolute;
+    margin-top: calc(452.1px + 31.9px);
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 400;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+  }
+
+  .elipseregisterform {
+    z-index: 0;
+  }
+
+  .elipse1registerform {
+    z-index: 0;
+    left: -53.33px;
+  }
+  .registerformframe1 {
+    width: 452.1px;
+    height: 412.6px;
   }
 }
