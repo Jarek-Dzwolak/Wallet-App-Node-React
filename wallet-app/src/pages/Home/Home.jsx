@@ -15,7 +15,6 @@ function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
 
-  //Przykładowa tablica danych zapisana do local storage z którego potem pobierane są do wygenerowania tablicy
   // localStorage.setItem(
   //   'transactions',
   //   JSON.stringify([
@@ -63,7 +62,6 @@ function Home() {
   //     },
   //   ]),
   // );
-  // const transactions = JSON.parse(localStorage.getItem('transactions'));
 
   useEffect(() => {
     const handleResize = () => {
