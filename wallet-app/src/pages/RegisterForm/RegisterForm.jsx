@@ -2,9 +2,6 @@ import React, { useState } from 'react';
 import css from './RegisterForm.module.css';
 import { useDispatch } from 'react-redux';
 import { register } from '../../Redux/operations';
-import { useNavigate } from 'react-router-dom';
-import Notiflix from 'notiflix';
-import zxcvbn from 'zxcvbn';
 
 import wallet from '../../icons/wallet.svg';
 import email from '../../icons/email.svg';
@@ -16,107 +13,48 @@ import registerformframe1 from '../../icons/registerformframe1.svg';
 
 function RegisterForm() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-
-  const [type, setType] = useState('input');
-  const [score, setScore] = useState(null);
-
-  const showHide = (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    let currentType = type === 'input' ? 'password' : 'input';
-    setType(currentType);
-  };
-
-  const testStrengthPassword = (e) => {
-    if (e.target.value !== '') {
-      let pass = zxcvbn(e.target.value);
-      // console.log(pass);
-      setScore(pass.score);
-    } else {
-      setScore(null);
-    }
-  };
-
-  const validateEmail = (email) => {
-    const regex = /\S+@\S+\.\S+/;
-    return regex.test(email);
-  };
-
-  const validatePassword = (password) => {
-    const uppercaseRegex = /[A-Z]/;
-    const digitRegex = /\d/;
-    const specialCharRegex = /[@#$%^&+=!]/;
-
-    if (
-      uppercaseRegex.test(password) &&
-      digitRegex.test(password) &&
-      specialCharRegex.test(password)
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const email = form.elements.email.value;
-    const password = form.elements.password.value;
-    const confirmPassword = form.elements.confirmPassword.value;
 
-    if (!validateEmail(email)) {
-      Notiflix.Notify.failure('Invalid email format!');
-      return;
-    }
+    dispatch(
+      register({
+        email: form.elements.email.value,
+        password: form.elements.password.value,
+        firstName: form.elements.firstName.value,
+      }),
+    );
 
-    if (!validatePassword(password)) {
-      Notiflix.Notify.failure(
-        'Password must have at least one uppercase letter, one digit, and one special character.',
-      );
-      return;
-    }
+    form.reset();
+  };
 
-    if (password !== confirmPassword) {
-      Notiflix.Notify.failure('Passwords do not match');
-      return;
-    }
-    try {
-      const response = await dispatch(
-        register({
-          email,
-          password,
-          firstName: form.elements.firstName.value,
-        }),
-      );
-      if (response) {
-        localStorage.setItem('accessToken', response.token);
-        form.reset();
-        navigate('/home');
-        Notiflix.Notify.success('Registration successful');
-      }
-    } catch (error) {
-      if (error.response && error.response.status === 409) {
-        Notiflix.Notify.failure(
-          'Email already exists. Please use a different email.',
-        );
-      } else {
-        console.error(error);
+  const [passwordStrength, setPasswordStrength] = useState('');
+  const [passwordLength, setPasswordLength] = useState(0);
 
-        Notiflix.Notify.failure('Registration failed. Please try again.');
-      }
+  const handlePasswordChange = (event) => {
+    const password = event.target.value;
+    const length = password.length;
+
+    setPasswordLength(length);
+
+    if (length === 0) {
+      setPasswordStrength('');
+    } else if (length <= 6) {
+      setPasswordStrength('weak');
+    } else if (length <= 12) {
+      setPasswordStrength('average');
+    } else {
+      setPasswordStrength('strong');
     }
   };
 
-  const handleLoginClick = () => {
-    navigate('/login');
-    Notiflix.Notify.info('You deliberately went to the login page.');
-  };
+  const isRegistrationAllowed =
+    passwordStrength === 'average' || passwordStrength === 'strong';
 
   return (
-    <>
-      <div className={css.wrapper}>
+   
+    <div className={css.wrapper}>
+      <div className={css.register_icons}>
         <div className={css.box}>
           <img
             className={css.registerformframe1}
@@ -135,83 +73,104 @@ function RegisterForm() {
           src={elipse1registerform}
           alt="elipse"
         ></img>
+        </div>
         <div className={css.register_container}>
           <div className={css.register_title}>
             <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
             <h2 className={css.wallet_title}>Wallet</h2>
           </div>
-
+<div className={css.register_content_container}>
           <form onSubmit={handleSubmit}>
             <div className={css.input_container}>
               <input
                 className={css.input}
                 type="text"
                 placeholder="E-mail"
-                name="email"
+                name=""
                 required=""
               />
               <img className={css.input_icon} src={email} alt="email icon" />
             </div>
-            {/* ///////////////////////////////////////////////////////////////////////////////////////// */}
             <div className={css.input_container}>
+              <input
+                className={css.input}
+                type="text"
+                placeholder="Password"
+                name=""
+                required=""
+              />
               <img
                 className={css.input_icon}
                 src={password}
                 alt="password icon"
-              />
-              <input
-                className={css.input}
-                type={type}
-                placeholder="Password"
-                name="password"
-                required=""
-                onChange={testStrengthPassword}
               />
             </div>
 
             <div className={css.input_container}>
-              <img
+              <input
+                className={css.input}
+                type="text"
+                placeholder="Confirm password"
+                name=""
+                required=""
+              onChange={handlePasswordChange}
+            />
+            <img
                 className={css.input_icon}
                 src={password}
                 alt="password icon"
               />
-              <input
-                className={css.input}
-                type={type}
-                placeholder="Confirm password"
-                name="confirmPassword"
-                required=""
-                onChange={testStrengthPassword}
-              />
-              <span className={css.show_password} onClick={showHide}>
-                {type === 'input' ? 'Hide' : 'Show'}
-              </span>
-              <span className={css.strength_password} data-score={score}></span>
+              <div className={css.password_strength_bar}>
+                <div
+                  className={css.password_strength_indicator}
+                  style={{
+                    width:
+                      passwordLength === 0
+                        ? '0%'
+                        : passwordLength <= 6
+                        ? '33%'
+                        : passwordLength <= 10
+                        ? '66%'
+                        : '100%',
+                  }}
+                ></div>
+              </div>
+              {passwordStrength && (
+                <div className={css.password_strength_text}>
+                  {passwordStrength}
+                </div>
+              )}
             </div>
-            {/* ////////////////////////////////////////////////////////////////////////////////////////////////// */}
+
             <div className={css.input_container}>
               <input
                 className={css.input}
                 type="text"
                 placeholder="First name"
-                name="firstName"
+                name=""
                 required=""
               />
               <img className={css.input_icon} src={user} alt="user icon" />
             </div>
             <div>
-              <button className={css.register_button}>REGISTER</button>
+              {!isRegistrationAllowed && (
+                <p className={css.registration_disabled}>
+                  Registration available for only average and strong passwords!
+                </p>
+              )}
+              {isRegistrationAllowed && (
+                <button className={css.register_button}>REGISTER</button>
+              )}
             </div>
 
             <div className={css.login_container}>
-              <button className={css.login_button} onClick={handleLoginClick}>
-                LOG IN
-              </button>
+              <button className={css.login_button}>LOG IN</button>
             </div>
           </form>
         </div>
       </div>
-    </>
+      </div>
+   
   );
 }
 
