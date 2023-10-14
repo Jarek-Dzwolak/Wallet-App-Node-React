@@ -209,20 +209,76 @@ body {
   }
 
 
-        .elipseregisterform {
-      display: block;
-      position: absolute;
-      right: 0;
-      top: 0;
-      z-index: -1;
-    }
+/* Desktop */
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    background: linear-gradient(
+      90deg,
+      rgba(231, 234, 242, 1) 50%,
+      rgba(255, 255, 255, 0.4) 50%
+    );
+  }
+  .elipseregisterform {
+    filter: blur(20px);
+  }
+
+  .register_container {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    margin-left: 107px;
+    margin-top: 52px;
+    margin-bottom: 52px;
+  }
+  .text {
+    font-size: 20px;
+  }
+  .registerformframe1 {
+    position: absolute;
+    width: 452px;
+    height: 412px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  .register_title {
+    align-items: center;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  .box {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .title {
+    position: absolute;
+    margin-top: 597.5px;
+    font-size: 30px;
+    line-height: 1.5;
+    font-weight: 400;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+  }
 
 
-    .elipse1registerform{
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: -1;
+
+
+  .elipse1registerform {
+    z-index: 0;
+  }
+  .registerformframe1 {
+    width: 452.1px;
+    height: 412.6px;
+  }
+  .login_container {
+    padding-bottom: 66px;
+
   }
 }
