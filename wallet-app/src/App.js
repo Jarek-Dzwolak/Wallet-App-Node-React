@@ -1,27 +1,50 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import RegisterForm from '../src/pages/RegisterForm/RegisterForm';
-import Login from '../src/pages/Login/Login';
-import Home from './pages/Home/Home';
-import Statistic from '../src/pages/Statistic/Statistic';
-import Currencies from '../src/pages/Currencies/Currencies';
-import PrivateRoute from '../src/privateRoute/PrivateRoute';
+import RegisterForm from './pages/RegisterForm/RegisterForm';
+import Login from './pages/Login/Login';
+import PrivateRoute from './privateRoute/PrivateRoute';
+import Loader from './components/Loader/Loader';
+
+
+
+// LazyLoad
+const LazyHome = lazy(() => import('./pages/Home/Home'));
+const LazyStatistic = lazy(() => import('./pages/Statistic/Statistic'));
+const LazyCurrencies = lazy(() => import('./pages/Currencies/Currencies'));
 
 function App() {
   return (
     <Routes>
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/login" element={<Login />} />
-      <Route element={<PrivateRoute />}>
-        <Route path="/home" element={<Home />} />
-      </Route>
-      <Route element={<PrivateRoute />}>
-        <Route path="/Statistic" element={<Statistic />} />
-      </Route>
+      <Route
+        path="/home"
+        element={
+          <PrivateRoute redirectTo="/login">
+            <Suspense fallback={<Loader />}>
+              <LazyHome />
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/statistic"
+        element={
+          <PrivateRoute redirectTo="/login">
+            <Suspense fallback={<Loader />}>
+              <LazyStatistic />
+            </Suspense>
+          </PrivateRoute>
+        }
+      />
       <Route
         path="/currencies"
         element={
-          <PrivateRoute redirectTo="/login" component={<Currencies />} />
+          <PrivateRoute redirectTo="/login">
+            <Suspense fallback={<Loader />}>
+              <LazyCurrencies />
+            </Suspense>
+          </PrivateRoute>
         }
       />
     </Routes>
