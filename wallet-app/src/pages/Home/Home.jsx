@@ -10,12 +10,12 @@ import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
 import TransactionModal from '../../components/TransactionModal/TransactionModal';
 import plus from '../../icons/plus.svg';
+import EditModal from '../../components/EditModal/EditModal';
 
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
 
-  //Przykładowa tablica danych zapisana do local storage z którego potem pobierane są do wygenerowania tablicy
   // localStorage.setItem(
   //   'transactions',
   //   JSON.stringify([
@@ -63,7 +63,6 @@ function Home() {
   //     },
   //   ]),
   // );
-  // const transactions = JSON.parse(localStorage.getItem('transactions'));
 
   useEffect(() => {
     const handleResize = () => {

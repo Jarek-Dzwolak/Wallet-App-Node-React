@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { fields } from '../IncomeExpenseField/IncomeExpenseField';
 import styles from './IncomeExpense.module.css';
 import editBtn from '../../icons/editBtn.svg';
 
 const IncomeExpenseTable = () => {
   const isWideScreen = window.innerWidth > 768;
   const isDesktopScreen = window.innerWidth > 1279;
-  // const transactions = JSON.parse(localStorage.getItem('transactions'));
 
   const [transactions, setTransactionList] = useState(
-    JSON.parse(localStorage.getItem('transactions')),
+    JSON.parse(localStorage.getItem('transactions')) || [], // Dodaj obsługę, gdy 'transactions' nie jest zainicjowane
   );
 
   useEffect(() => {
@@ -17,15 +15,12 @@ const IncomeExpenseTable = () => {
   }, [transactions]);
 
   const deleteTransaction = (index) => {
-    const updatedTransactionList = transactions.filter(
-      (el) => el !== transactions[index],
-    );
-    console.log(updatedTransactionList);
+    const updatedTransactionList = transactions.filter((el, i) => i !== index);
     setTransactionList(updatedTransactionList);
   };
 
   return isWideScreen ? (
-    <div className={isDesktopScreen && styles.desktopScreen}>
+    <div className={isDesktopScreen ? styles.desktopScreen : ''}>
       {isWideScreen && (
         <ul className={styles.listKeys}>
           <li className={styles.desktopItem}>
