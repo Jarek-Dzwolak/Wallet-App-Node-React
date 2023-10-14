@@ -1,9 +1,10 @@
 .balanceField {
+  box-sizing: border-box;
   min-width: 280px;
   margin: 0 20px;
-  padding: 20px 0px;
+  padding: 12px 0;
+  padding-left: 40px;
   display: flex;
-  align-items: center;
   flex-direction: column;
   border-radius: 30px;
   background-color: white;
@@ -13,6 +14,7 @@
   .balanceField {
     min-width: 336px;
     padding: 12px 0;
+    padding-left: 40px;
   }
 }
 

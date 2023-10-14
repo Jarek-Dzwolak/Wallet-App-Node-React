@@ -1,10 +1,11 @@
 .walletBox {
   padding: 0;
   padding-bottom: 52px;
-  margin: 20px;
+  margin: 20px auto;
   border-radius: 30px;
   overflow: hidden;
   list-style: none;
+  max-width: 336px;
   background: #4a56e2;
   color: #fff;
 }
@@ -13,7 +14,20 @@
   .walletBox {
     width: 336px;
     margin: 0;
+    margin-left: 20px;
     padding-bottom: 66px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .walletBox {
+    position: relative;
+    width: 393px;
+    min-height: 331px;
+    margin: 0;
+    margin-left: 20px;
+    padding-bottom: 0;
+    height: 100%;
   }
 }
 
@@ -44,6 +58,12 @@
   position: absolute;
 }
 
+@media (min-width: 1280px) {
+  .walletBg {
+    bottom: 0;
+  }
+}
+
 .walletValuesBox {
   padding: 12px 0 0 0;
   position: relative;
@@ -55,5 +75,11 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .walletValuesBox {
+    position: static;
   }
 }

@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
 import email from '../../icons/email.svg';
 import { NavLink } from 'react-router-dom';
-import './Navigation.css';
+import homeIconMobile from '../../icons/homeActiveMobile.svg';
+import curriencesIcon from '../../icons/currency.svg';
+import diagramIconMobile from '../../icons/diagramMobile.svg';
+import HomeIconTabletActive from '../../icons/HomeIconTabletActive.svg';
+import statisticIconTablet from '../../icons/statisticsIconTablet.svg';
+import Home from '../../pages/Home/Home';
 
 function Navigation() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const isWideScreen = window.innerWidth >= 768;
 
   useEffect(() => {
     const handleResize = () => {
@@ -32,11 +38,16 @@ function Navigation() {
         <NavLink className={styles.link} to="/home">
           <img
             className={styles.navigationIcon}
-            src={email}
+            src={isWideScreen ? HomeIconTabletActive : homeIconMobile}
             alt="home nav icon"
-          ></img>{' '}
+          ></img>
           {!shouldRenderNavigationItem && (
-            <span className={styles.navigationName}>Home</span>
+            <span
+              style={{ fontWeight: isWideScreen ? 'bold' : 'normal' }}
+              className={styles.navigationName}
+            >
+              Home
+            </span>
           )}
         </NavLink>
       </li>
@@ -44,7 +55,7 @@ function Navigation() {
         <NavLink className={styles.link} to="/statistic">
           <img
             className={styles.navigationIcon}
-            src={email}
+            src={diagramIconMobile}
             alt="statistic nav icon"
           ></img>
           {!shouldRenderNavigationItem && (
@@ -57,7 +68,7 @@ function Navigation() {
           <NavLink className={styles.link} to="/currencies">
             <img
               className={styles.navigationIcon}
-              src={email}
+              src={curriencesIcon}
               alt="currencies nav icon"
             />
           </NavLink>
