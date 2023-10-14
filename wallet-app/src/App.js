@@ -20,31 +20,31 @@ function App() {
       <Route
         path="/home"
         element={
-          // <PrivateRoute redirectTo="/login">
+          <PrivateRoute redirectTo="/login">
             <Suspense fallback={<Loader />}>
               <LazyHome />
             </Suspense>
-          // </PrivateRoute>
+          </PrivateRoute>
         }
       />
       <Route
         path="/statistic"
         element={
-          // <PrivateRoute redirectTo="/login">
+          <PrivateRoute redirectTo="/login">
             <Suspense fallback={<Loader />}>
               <LazyStatistic />
             </Suspense>
-          // </PrivateRoute>
+          </PrivateRoute>
         }
       />
       <Route
         path="/currencies"
         element={
-          // <PrivateRoute redirectTo="/login">
+          <PrivateRoute redirectTo="/login">
             <Suspense fallback={<Loader />}>
               <LazyCurrencies />
             </Suspense>
-          // </PrivateRoute>
+          </PrivateRoute>
         }
       />
     </Routes>
