@@ -14,6 +14,19 @@ import plus from '../../icons/plus.svg';
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
+  const [transactions, setTransactions] = useState([]);
+   useEffect(() => {
+     const storedTransactions =
+       JSON.parse(localStorage.getItem('transactions')) || [];
+     setTransactions(storedTransactions);
+   }, []);
+
+   const addTransaction = (newTransaction) => {
+     const updatedTransactions = [...transactions, newTransaction];
+     setTransactions(updatedTransactions);
+     localStorage.setItem('transactions', JSON.stringify(updatedTransactions));
+   };
+  
 
   //Przykładowa tablica danych zapisana do local storage z którego potem pobierane są do wygenerowania tablicy
   // localStorage.setItem(
@@ -87,7 +100,8 @@ function Home() {
 
   return (
     <div className={Styles.balance}>
-      <TransactionModal open={openModal} onClose={() => setOpenModal(false)} />
+      <TransactionModal open={openModal} onClose={() => setOpenModal(false)}
+      addTransaction={addTransaction}/>
       <Header />
       <div className={Styles.bg}></div>
 
