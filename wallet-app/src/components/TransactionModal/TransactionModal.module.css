@@ -71,7 +71,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: white;
+
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border: 1px solid #e0e0e0;
@@ -83,10 +83,11 @@
   width: 44px;
   left: -4px;
   bottom: -6px;
-  background-color: #24cca7;
+
   -webkit-transition: 0.4s;
   transition: 0.4s;
   border-radius: 50%;
+  background: url('../../icons/plus-slider.svg') no-repeat;
 }
 .switch_input:checked + .slider {
   background-color: white;
@@ -95,9 +96,10 @@
   box-shadow: 0 0 1px #ccc;
 }
 .switch_input:checked + .slider:before {
+  background: url('../../icons/minus-slider.svg') no-repeat;
   -webkit-transform: translateX(40px);
   -ms-transform: translateX(40px);
-  transform: translateX(40px);
+  transform: translateX(43px);
 }
 .selectStyle {
   font-size: 18px;
@@ -240,8 +242,9 @@
   .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
+    width: 80px;
     height: 34px;
+    margin-top: 9px;
   }
 
   .switch_input {
@@ -257,32 +260,35 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
-    -webkit-transition: 0.4s;
-    transition: 0.4s;
+
+    -webkit-transition: 0.8s;
+    transition: 0.8s;
+    border: 1px solid #e0e0e0;
   }
   .slider:before {
     position: absolute;
     content: '';
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: 0.4s;
+    height: 44px;
+    width: 44px;
+    left: -4px;
+    bottom: -6px;
+
+    -webkit-transition: 0.7s;
     transition: 0.4s;
     border-radius: 50%;
+    background: url('../../icons/plus-slider.svg') no-repeat;
   }
   .switch_input:checked + .slider {
-    background-color: #2196f3;
+    background-color: white;
   }
   .switch_input:focus + .slider {
-    box-shadow: 0 0 1px #2196f3;
+    box-shadow: 0 0 1px #ccc;
   }
   .switch_input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    background: url('../../icons/minus-slider.svg') no-repeat;
+    -webkit-transform: translateX(40px);
+    -ms-transform: translateX(40px);
+    transform: translateX(43px);
   }
   /* ///// */
 

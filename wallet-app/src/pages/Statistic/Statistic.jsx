@@ -13,7 +13,7 @@ import elipse2 from '../../icons/elipse2.svg';
 const accountBalanceKey = 'accountBalance';
 const expensesKey = 'expenses';
 
-function Statistic() {
+const Statistic = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -29,30 +29,45 @@ function Statistic() {
     };
   }, []);
 
-  const categoryData = useMemo(() => [
-    { category: 'Main Expenses', amount: 500 },
-    { category: 'Products', amount: 300 },
-    { category: 'Car', amount: 200 },
-    { category: 'Self care', amount: 100 },
-    { category: 'Child care', amount: 150 },
-    { category: 'Household products', amount: 250 },
-    { category: 'Education', amount: 180 },
-    { category: 'Leisure', amount: 350 },
-    { category: 'Other Expenses', amount: 120 },
-  ], []);
+  const categoryData = useMemo(
+    () => [
+      { category: 'Main Expenses', amount: 500 },
+      { category: 'Products', amount: 300 },
+      { category: 'Car', amount: 200 },
+      { category: 'Self care', amount: 100 },
+      { category: 'Child care', amount: 150 },
+      { category: 'Hou+sehold products', amount: 250 },
+      { category: 'Education', amount: 180 },
+      { category: 'Leisure', amount: 350 },
+      { category: 'Other Expenses', amount: 120 },
+    ],
+    [],
+  );
 
   const [selectedMonth, setSelectedMonth] = useState('January');
 
-  const chartData = useMemo(() => ({
-    datasets: [{
-      data: categoryData.map(category => category.amount),
-      backgroundColor: [
-        '#FED057', '#FFD8D0', '#FD9498', '#C5BAFF', '#6E78E8',
-        '#4A56E2', '#81E1FF', '#24CCA7', '#00AD84',
+  const chartData = useMemo(
+    () => ({
+      datasets: [
+        {
+          data: categoryData.map((category) => category.amount),
+          backgroundColor: [
+            '#FED057',
+            '#FFD8D0',
+            '#FD9498',
+            '#C5BAFF',
+            '#6E78E8',
+            '#4A56E2',
+            '#81E1FF',
+            '#24CCA7',
+            '#00AD84',
+          ],
+        },
       ],
-    }],
-    labels: categoryData.map(category => category.category),
-  }), [categoryData]);
+      labels: categoryData.map((category) => category.category),
+    }),
+    [categoryData],
+  );
 
   const shouldRenderCurriences = windowWidth >= 768;
 
@@ -70,17 +85,18 @@ function Statistic() {
   const handleMonthSelect = (month) => {
     setSelectedMonth(month);
 
-    
-    const newBalance = calculateNewBalance(); 
+    const newBalance = calculateNewBalance();
     setAccountBalance(newBalance);
     localStorage.setItem(accountBalanceKey, newBalance.toString());
   };
 
-  
   const calculateNewBalance = () => {
-    const currentBalance = accountBalance; 
-    const expensesTotal = expenses.reduce((total, expense) => total + expense.amount, 0); 
-    const newBalance = currentBalance - expensesTotal; 
+    const currentBalance = accountBalance;
+    const expensesTotal = expenses.reduce(
+      (total, expense) => total + expense.amount,
+      0,
+    );
+    const newBalance = currentBalance - expensesTotal;
     return newBalance;
   };
 
@@ -147,6 +163,6 @@ function Statistic() {
       </div>
     </div>
   );
-}
+};
 
 export default Statistic;
