@@ -46,30 +46,9 @@ const Statistic = () => {
 
   const [selectedMonth, setSelectedMonth] = useState('January');
 
-  const chartData = useMemo(
-    () => ({
-      datasets: [
-        {
-          data: categoryData.map((category) => category.amount),
-          backgroundColor: [
-            '#FED057',
-            '#FFD8D0',
-            '#FD9498',
-            '#C5BAFF',
-            '#6E78E8',
-            '#4A56E2',
-            '#81E1FF',
-            '#24CCA7',
-            '#00AD84',
-          ],
-        },
-      ],
-      labels: categoryData.map((category) => category.category),
-    }),
-    [categoryData],
-  );
+  
 
-  const shouldRenderCurriences = windowWidth >= 768;
+  const shouldRenderCurriences = windowWidth > 767;
 
   // LOCAL STORAGE
   const [accountBalance, setAccountBalance] = useState(() => {
@@ -97,14 +76,42 @@ const Statistic = () => {
       0,
     );
     const newBalance = currentBalance - expensesTotal;
-    return newBalance;
+    return { newBalance, expensesTotal };
   };
+  
+  const chartData = useMemo(
+  () => {
+    const expensesTotal = expenses.reduce((total, expense) => total + expense.amount, 0);
+    return {
+      datasets: [
+        {
+          data: categoryData.map((category) => category.amount),
+          backgroundColor: [
+            '#FED057',
+            '#FFD8D0',
+            '#FD9498',
+            '#C5BAFF',
+            '#6E78E8',
+            '#4A56E2',
+            '#81E1FF',
+            '#24CCA7',
+            '#00AD84',
+          ],
+        },
+      ],
+      labels: categoryData.map((category) => category.category),
+      expensesTotal: expensesTotal, 
+    };
+  },
+  [categoryData, expenses]
+);
 
   return (
     <div>
       <Header />
       <div className={css.statistic_container}>
         <div className={css.statistic_container_desktop_left}>
+          {windowWidth < 767 && <Navigation />}
           {shouldRenderCurriences ? (
             <div className={css.tabletViewBox1}>
               <div className={css.tabletViewBox2}>
@@ -151,7 +158,7 @@ const Statistic = () => {
               <CategoryItem
                 labels={chartData.labels}
                 datasets={chartData.datasets}
-                accountBalance={accountBalance}
+                expensesTotal={expenses}
                 categoryData={categoryData}
               />
               <div className={css.bg}></div>

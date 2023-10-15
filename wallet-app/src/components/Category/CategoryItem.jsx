@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './CategoryItem.module.css';
 
-const CategoryItem = ({ labels, datasets, accountBalance, categoryData }) => {
+const CategoryItem = ({ labels, datasets, accountBalance, categoryData, expenses }) => {
 
   const totalBalance = datasets[0].data.reduce((total, amount) => total + amount, 0);
 
@@ -41,7 +41,7 @@ const CategoryItem = ({ labels, datasets, accountBalance, categoryData }) => {
           <li>
             <span className={css.expenseText}>Expenses:</span>
             <span className={css.expenseValue}>
-              {accountBalance}
+              {expenses}
               {categoryData.reduce((total, category) => total + category.amount, 0)}
             </span>
           </li>
