@@ -14,7 +14,14 @@ import plus from '../../icons/plus.svg';
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
-
+  const [balance, setBalance] = useState(
+    JSON.parse(localStorage.getItem('transactions')) || [],
+  );
+  window.addEventListener('click', (e) => {
+    if (e.target.nodeName === 'BUTTON') {
+      setBalance(JSON.parse(localStorage.getItem('transactions')) || []);
+    }
+  });
   // localStorage.setItem(
   //   'transactions',
   //   JSON.stringify([
@@ -96,7 +103,7 @@ function Home() {
           <div className={Styles.tabletViewBox1}>
             <div className={Styles.tabletViewBox2}>
               <Navigation />
-              <Balance />
+              <Balance balance={balance} />
             </div>
             <div className={Styles.tabletViewBox3}>
               <Curriences />
@@ -121,7 +128,7 @@ function Home() {
           <img className={Styles.elipse2} src={elipse2} alt="elipse purple" />
           <div className={Styles.desktopViewBox2}>
             <Navigation />
-            <Balance />
+            <Balance balance={balance} />
             <Curriences />
           </div>
           <div>
@@ -140,7 +147,7 @@ function Home() {
         <div>
           <div className={Styles.bg}></div>
           <Navigation />
-          <Balance />
+          <Balance balance={balance} />
           <IncomeExpenseTable />
           <div className={Styles.btn}>
             <img
