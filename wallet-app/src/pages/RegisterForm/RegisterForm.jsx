@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import css from './RegisterForm.module.css';
 import { useDispatch } from 'react-redux';
+import { setUsername } from '../../Redux/userSlice';
 import { register } from '../../Redux/operations';
 import { useNavigate } from 'react-router-dom';
 import Notiflix from 'notiflix';
@@ -64,6 +65,7 @@ function RegisterForm() {
     const email = form.elements.email.value;
     const password = form.elements.password.value;
     const confirmPassword = form.elements.confirmPassword.value;
+    const firstName = form.elements.firstName.value;
 
     if (!validateEmail(email)) {
       Notiflix.Notify.failure('Invalid email format!');
@@ -86,12 +88,14 @@ function RegisterForm() {
         register({
           email,
           password,
-          firstName: form.elements.firstName.value,
+          firstName,
         }),
       );
       if (response) {
         localStorage.setItem('accessToken', response.token);
+        localStorage.setItem('firstName', firstName);
         form.reset();
+        dispatch(setUsername(firstName));
         navigate('/home');
         Notiflix.Notify.success('Registration successful');
       }

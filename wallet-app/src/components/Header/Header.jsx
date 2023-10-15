@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <div className={css.wrapper}>
-      <div className={css.wrapper_frist}>
+      <div className={css.wrapper_fst}>
         <img className={css.icons_wallet} src={wallet} alt="wallet icon" />
         <span className={css.wallet_title}>Wallet</span>
       </div>
