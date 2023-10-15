@@ -102,7 +102,6 @@ function RegisterForm() {
         );
       } else {
         console.error(error);
-
         Notiflix.Notify.failure('Registration failed. Please try again.');
       }
     }

@@ -1,29 +1,30 @@
 import styles from './Balance.module.css';
 
-const Balance = () => {
-  const transactions = JSON.parse(localStorage.getItem('transactions'));
-  const calculateTotalSum = (transactions) => {
-    let totalSum = 0;
+import React, { useState, useEffect } from 'react';
 
+const Balance = (props) => {
+  const transactions = props.balance;
+
+  const [totalSum, setTotalSum] = useState(0);
+
+  const calculateTotalSum = (transactions) => {
+    let sum = 0;
     transactions.forEach((transaction) => {
       const sumValue = parseFloat(transaction.Sum);
-
-      if (transaction.Type === '-') {
-        totalSum -= sumValue;
-      } else {
-        totalSum += sumValue;
-      }
+      sum += transaction.Type === '-' ? -sumValue : sumValue;
     });
 
-    return totalSum.toFixed(2);
+    return sum.toFixed(2);
   };
 
-  const totalSum = calculateTotalSum(transactions);
+  useEffect(() => {
+    setTotalSum(calculateTotalSum(transactions));
+  }, [transactions]);
 
   return (
     <div className={styles.balanceField}>
       <span className={styles.title}>YOUR BALANCE</span>
-      <span className={styles.amount}>₴ {totalSum}</span>
+      <span className={styles.amount}>zł {totalSum}</span>
     </div>
   );
 };
