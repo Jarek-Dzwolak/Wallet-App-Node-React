@@ -31,7 +31,6 @@ function RegisterForm() {
   const testStrengthPassword = (e) => {
     if (e.target.value !== '') {
       let pass = zxcvbn(e.target.value);
-      // console.log(pass);
       setScore(pass.score);
     } else {
       setScore(null);
@@ -83,7 +82,7 @@ function RegisterForm() {
       return;
     }
     try {
-      const response = await dispatch(
+      const response = dispatch(
         register({
           email,
           password,
@@ -103,7 +102,6 @@ function RegisterForm() {
         );
       } else {
         console.error(error);
-
         Notiflix.Notify.failure('Registration failed. Please try again.');
       }
     }
