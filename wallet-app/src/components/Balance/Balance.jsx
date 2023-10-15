@@ -1,5 +1,4 @@
 import styles from './Balance.module.css';
-
 import React, { useState, useEffect } from 'react';
 
 const Balance = (props) => {
@@ -9,10 +8,14 @@ const Balance = (props) => {
 
   const calculateTotalSum = (transactions) => {
     let sum = 0;
-    transactions.forEach((transaction) => {
-      const sumValue = parseFloat(transaction.Sum);
-      sum += transaction.Type === '-' ? -sumValue : sumValue;
-    });
+
+    // Sprawdzenie, czy transactions jest zdefiniowane i jest tablicą
+    if (Array.isArray(transactions)) {
+      transactions.forEach((transaction) => {
+        const sumValue = parseFloat(transaction.Sum);
+        sum += transaction.Type === '-' ? -sumValue : sumValue;
+      });
+    }
 
     return sum.toFixed(2);
   };

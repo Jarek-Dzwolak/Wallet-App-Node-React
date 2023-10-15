@@ -1,10 +1,8 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
-const PrivateRoute = () => {
+const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = localStorage.getItem('accessToken');
-
-  return isLoggedIn ? <Outlet /> : <Navigate to={'/login'} />;
+  return isLoggedIn ? Component : <Navigate to={redirectTo} />;
 };
 
 export default PrivateRoute;
