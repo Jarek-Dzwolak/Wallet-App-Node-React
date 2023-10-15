@@ -112,6 +112,7 @@ function RegisterForm() {
     Notiflix.Notify.info('You deliberately went to the login page.');
   };
 
+   
    return (
     <div className={css.wrapper}>
       <div className={css.box_container}>
@@ -133,75 +134,77 @@ function RegisterForm() {
           <h2 className={css.wallet_title}>Wallet</h2>
         </div>
 
-        <div className={css.form_container}>
-          <form onSubmit={handleSubmit}>
-            <div className={css.input_container}>
-              <input
-                className={css.input}
-                type="text"
-                placeholder="E-mail"
-                name="email"
-                required=""
-              />
-              <img className={css.input_icon} src={email} alt="email icon" />
-            </div>
-  
-             
-  
-            <div className={css.input_container}>
-              <img className={css.input_icon} src={password} alt="password icon" />
-              <input
-                className={css.input}
-                type={type}
-                placeholder="Password"
-                name="password"
-                required=""
-                onChange={testStrengthPassword}
-              />
-              <span className={css.show_password} onClick={showHide}>
-                {type === 'password' ? 'Show' : 'Hide'}
-              </span>
-              <span className={css.strength_password} data-score={score}></span>
-            </div>
-  
-            <div className={css.input_container}>
-              <img className={css.input_icon} src={password} alt="password icon" />
-              <input
-                className={css.input}
-                type={type}
-                placeholder="Confirm password"
-                name="confirmPassword"
-                required=""
-                onChange={testStrengthPassword}
-              />
-              <span className={css.show_password} onClick={showHide}>
-                {type === 'password' ? 'Show' : 'Hide'}
-              </span>
-              <span className={css.strength_password} data-score={score}></span>
-            </div>
-  
-            <div className={css.input_container}>
-              <input
-                className={css.input}
-                type="text"
-                placeholder="First name"
-                name="firstName"
-                required=""
-              />
-              <img className={css.input_icon} src={user} alt="user icon" />
-            </div>
-  
-            <div>
-              <button className={css.register_button}>REGISTER</button>
-            </div>
-  
-            <div className={css.login_container}>
-              <button className={css.login_button} onClick={handleLoginClick}>
-                LOG IN
-              </button>
-            </div>
-          </form>
-        </div>
+        <div className={css.form_container_background}>
+          <div className={css.form_container}>
+            <form onSubmit={handleSubmit}>
+              <div className={css.input_container_list}>
+                <div className={css.input_container}>
+                  <input
+                    className={css.input}
+                    type="text"
+                    placeholder="E-mail"
+                    name="email"
+                    required=""
+                  />
+                  <img className={css.input_icon} src={email} alt="email icon" />
+                 </div>
+                 
+                <div className={css.input_container}>
+                  <img className={css.input_icon} src={password} alt="password icon" />
+                  <input
+                    className={css.input}
+                    type={type}
+                    placeholder="Password"
+                    name="password"
+                    required=""
+                    onChange={testStrengthPassword}
+                  />
+                  <span className={css.show_password} onClick={showHide}>
+                    {type === 'password' ? 'Show' : 'Hide'}
+                  </span>
+                  <span className={css.strength_password} data-score={score}></span>
+                </div>
+      
+                <div className={css.input_container}>
+                  <img className={css.input_icon} src={password} alt="password icon" />
+                  <input
+                    className={css.input}
+                    type={type}
+                    placeholder="Confirm password"
+                    name="confirmPassword"
+                    required=""
+                    onChange={testStrengthPassword}
+                  />
+                  <span className={css.show_password} onClick={showHide}>
+                    {type === 'password' ? 'Show' : 'Hide'}
+                  </span>
+                  <span className={css.strength_password} data-score={score}></span>
+                </div>
+      
+                <div className={css.input_container}>
+                  <input
+                    className={css.input}
+                    type="text"
+                    placeholder="First name"
+                    name="firstName"
+                    required=""
+                  />
+                  <img className={css.input_icon} src={user} alt="user icon" />
+                </div>
+              </div>
+    
+              <div>
+                <button className={css.register_button}>REGISTER</button>
+              </div>
+    
+              <div className={css.login_container}>
+                <button className={css.login_button} onClick={handleLoginClick}>
+                  LOG IN
+                </button>
+              </div>
+            </form>
+          </div>
+          </div>
         </div>
     </div>
   );
