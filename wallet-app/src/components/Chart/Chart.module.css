@@ -3,6 +3,10 @@ canvas {
   max-width: 450px;
   height: auto;
 }
+.diagramContainer {
+  display: flex;
+  justify-content: center;
+}
 
 .diagramValue {
   font-size: 22px;

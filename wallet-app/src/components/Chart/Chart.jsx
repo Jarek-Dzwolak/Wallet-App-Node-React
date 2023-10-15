@@ -13,10 +13,10 @@ const ChartComponent = ({ chartData }) => {
       canvas.width = canvas.parentElement.clientWidth;
       canvas.height = canvas.parentElement.clientHeight;
       setCanvasDimensions({ width: canvas.width, height: canvas.height });
-      
     }
   };
 
+  
   useEffect(() => {
     if (!chartData || !chartData.labels || !chartData.datasets) {
       return null;
@@ -31,7 +31,17 @@ const ChartComponent = ({ chartData }) => {
     if (myChartRef) {
       chartInstance.current = new Chart(myChartRef, {
         type: "doughnut",
-        data: chartData,
+        data: {
+          datasets: [
+            {
+              data: [chartData.expensesTotal || 0],
+              backgroundColor: [
+                '#FFD8D0',
+              ],
+            },
+          ],
+          labels: ['Expenses'],
+        },
         options: {
           responsive: true,
           maintainAspectRatio: false,
@@ -71,10 +81,12 @@ const ChartComponent = ({ chartData }) => {
           textAlign: "center",
           width: "100%",
           color: "#000",
+          display: "flex",
+          justifyContent: "center",
         }}
       >
         <div style={{ fontSize: "18px", fontWeight: "700" }} className={css.diagramValue}>
-          ₴ {chartData.accountBalance}
+          PLN {chartData.expensesTotal || 0}
         </div>
       </div>
     </div>
