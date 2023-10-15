@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import styles from './Navigation.module.css';
-import email from '../../icons/email.svg';
-import { NavLink } from 'react-router-dom';
+// import email from '../../icons/email.svg';
+import { NavLink, useLocation } from 'react-router-dom';
 import homeIconMobile from '../../icons/homeActiveMobile.svg';
 import curriencesIcon from '../../icons/currency.svg';
 import diagramIconMobile from '../../icons/diagramMobile.svg';
 import HomeIconTabletActive from '../../icons/HomeIconTabletActive.svg';
-import statisticIconTablet from '../../icons/statisticsIconTablet.svg';
-import Home from '../../pages/Home/Home';
+// import statisticIconTablet from '../../icons/statisticsIconTablet.svg';
+// import Home from '../../pages/Home/Home';
 
 function Navigation() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const isWideScreen = window.innerWidth >= 768;
+  const location = useLocation();
 
   useEffect(() => {
     const handleResize = () => {
@@ -35,7 +36,17 @@ function Navigation() {
   return (
     <ul className={styles.navigation}>
       <li className={styles.navigationItem}>
-        <NavLink className={styles.link} to="/home">
+        <NavLink
+          className={styles.link}
+          to="/home"
+          isActive={(match, location) => {
+            if (match) {
+              return true;
+            }
+            // Sprawdź, czy jesteś na stronie "Home" lub podstronach "Home"
+            return location.pathname.startsWith('/home');
+          }}
+        >
           <img
             className={styles.navigationIcon}
             src={isWideScreen ? HomeIconTabletActive : homeIconMobile}
@@ -43,7 +54,12 @@ function Navigation() {
           ></img>
           {!shouldRenderNavigationItem && (
             <span
-              style={{ fontWeight: isWideScreen ? 'bold' : 'normal' }}
+              style={{
+                fontWeight:
+                  location.pathname.startsWith('/home') && isWideScreen
+                    ? 'bold'
+                    : 'normal',
+              }}
               className={styles.navigationName}
             >
               Home
@@ -59,7 +75,15 @@ function Navigation() {
             alt="statistic nav icon"
           ></img>
           {!shouldRenderNavigationItem && (
-            <span className={styles.navigationName}>statistics</span>
+            <span
+              style={{
+                fontWeight:
+                  location.pathname === '/statistic' ? 'bold' : 'normal',
+              }}
+              className={styles.navigationName}
+            >
+              Statistics
+            </span>
           )}
         </NavLink>
       </li>
