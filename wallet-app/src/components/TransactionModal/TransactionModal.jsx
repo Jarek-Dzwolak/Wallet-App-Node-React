@@ -84,6 +84,8 @@ const TransactionModal = ({ open, onClose }) => {
           <option value="Leisure">Leisure</option>
           <option value="Other expenses">Other expenses</option>
           <option value="Entertainment">Entertainment</option>
+          <option value="Main Expenses">Main Expenses</option>
+          <option value="Child care">Child care</option>
         </select>
 
         <div className={css.modalContainer2}>

@@ -14,6 +14,8 @@ const accountBalanceKey = 'accountBalance';
 const expensesKey = 'expenses';
 
 const Statistic = () => {
+  const balance = JSON.parse(localStorage.getItem('transactions'));
+
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
@@ -29,24 +31,55 @@ const Statistic = () => {
     };
   }, []);
 
+  const calculateTotalExpense = (transactions, category) => {
+    return transactions.reduce((sum, transaction) => {
+      if (transaction.Category === category && transaction.Type === '-') {
+        return sum + parseFloat(transaction.Sum);
+      }
+      return sum;
+    }, 0);
+  };
+
   const categoryData = useMemo(
     () => [
-      { category: 'Main Expenses', amount: 500 },
-      { category: 'Products', amount: 300 },
-      { category: 'Car', amount: 200 },
-      { category: 'Self care', amount: 100 },
-      { category: 'Child care', amount: 150 },
-      { category: 'Hou+sehold products', amount: 250 },
-      { category: 'Education', amount: 180 },
-      { category: 'Leisure', amount: 350 },
-      { category: 'Other Expenses', amount: 120 },
+      {
+        category: 'Main Expenses',
+        amount: calculateTotalExpense(balance, 'Main Expenses'),
+      },
+      {
+        category: 'Products',
+        amount: calculateTotalExpense(balance, 'Leisure'),
+      },
+      { category: 'Car', amount: calculateTotalExpense(balance, 'Car') },
+      {
+        category: 'Self care',
+        amount: calculateTotalExpense(balance, 'Self care'),
+      },
+      {
+        category: 'Child care',
+        amount: calculateTotalExpense(balance, 'Child care'),
+      },
+      {
+        category: 'Household products',
+        amount: calculateTotalExpense(balance, 'Household products'),
+      },
+      {
+        category: 'Education',
+        amount: calculateTotalExpense(balance, 'Education'),
+      },
+      {
+        category: 'Leisure',
+        amount: calculateTotalExpense(balance, 'Leisure'),
+      },
+      {
+        category: 'Other expenses',
+        amount: calculateTotalExpense(balance, 'Other expenses'),
+      },
     ],
     [],
   );
 
   const [selectedMonth, setSelectedMonth] = useState('January');
-
-  
 
   const shouldRenderCurriences = windowWidth > 767;
 
@@ -78,10 +111,12 @@ const Statistic = () => {
     const newBalance = currentBalance - expensesTotal;
     return { newBalance, expensesTotal };
   };
-  
-  const chartData = useMemo(
-  () => {
-    const expensesTotal = expenses.reduce((total, expense) => total + expense.amount, 0);
+
+  const chartData = useMemo(() => {
+    const expensesTotal = expenses.reduce(
+      (total, expense) => total + expense.amount,
+      0,
+    );
     return {
       datasets: [
         {
@@ -100,11 +135,9 @@ const Statistic = () => {
         },
       ],
       labels: categoryData.map((category) => category.category),
-      expensesTotal: expensesTotal, 
+      expensesTotal: expensesTotal,
     };
-  },
-  [categoryData, expenses]
-);
+  }, [categoryData, expenses]);
 
   return (
     <div>
@@ -116,7 +149,7 @@ const Statistic = () => {
             <div className={css.tabletViewBox1}>
               <div className={css.tabletViewBox2}>
                 <Navigation />
-                <Balance />
+                <Balance balance={balance} />
               </div>
               <div className={css.tabletViewBox3}>
                 <Curriences />
