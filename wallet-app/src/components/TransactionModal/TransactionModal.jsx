@@ -5,6 +5,32 @@ import close from '../../icons/close.svg';
 const TransactionModal = ({ open, onClose }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [isChecked, setIsChecked] = useState(false);
+  const [valueInput, setValueInput] = useState(0.0);
+  const [dateInput, setDateInput] = useState('');
+  const [commentInput, setCommentInput] = useState('');
+
+  const addTransaction = () => {
+    onClose();
+    const transactionType = isChecked === false ? '+' : '-';
+    const transactionCategory =
+      selectedCategory === '' ? 'Other' : selectedCategory;
+    const transactionData = {
+      Date: dateInput,
+      Type: transactionType,
+      Category: transactionCategory,
+      Comment: commentInput,
+      Sum: valueInput,
+    };
+    handleAddTransaction(transactionData);
+  };
+
+  const handleAddTransaction = (transactionData) => {
+    const currentTransactions = JSON.parse(
+      localStorage.getItem('transactions'),
+    );
+    const updatedTransactions = currentTransactions.push(transactionData);
+    localStorage.setItem('transactions', JSON.stringify(currentTransactions));
+  };
 
   if (!open) return null;
 
@@ -61,16 +87,33 @@ const TransactionModal = ({ open, onClose }) => {
         </select>
 
         <div className={css.modalContainer2}>
-          <input className={css.valueInput} type="number" placeholder="0.00" />
+          <input
+            className={css.valueInput}
+            type="number"
+            min="0.00"
+            placeholder="0.00"
+            value={valueInput}
+            onChange={(e) => setValueInput(e.target.value)}
+          />
           <input
             className={css.dateInput}
             type="date"
             min="2023-01-01"
             max="2025-04-20"
+            value={dateInput}
+            onChange={(e) => setDateInput(e.target.value)}
           />
         </div>
-        <input className={css.commentInput} type="text" placeholder="Comment" />
-        <button className={css.btn}>ADD</button>
+        <input
+          className={css.commentInput}
+          type="text"
+          placeholder="Comment"
+          value={commentInput}
+          onChange={(e) => setCommentInput(e.target.value)}
+        />
+        <button className={css.btn} onClick={addTransaction}>
+          ADD
+        </button>
         <button className={css.btn2} onClick={onClose}>
           CANCEL
         </button>
