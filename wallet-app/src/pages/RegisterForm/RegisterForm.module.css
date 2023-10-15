@@ -185,9 +185,9 @@
 @media screen and (min-width: 768px) {
   .register_container {
     display: flex;
-    flex-direction: column;
-
     max-width: none;
+    width: 533px;
+    flex-direction: column;
     background-color: white;
     z-index: 0;
     position: relative;
@@ -231,6 +231,7 @@
     width: 260px;
     height: 250px;
   }
+
   .elipseregisterform {
     display: block;
     position: absolute;
@@ -238,6 +239,7 @@
     top: 0;
     z-index: -1;
   }
+
   .elipse1registerform {
     display: block;
     position: absolute;
@@ -245,6 +247,7 @@
     left: 0;
     z-index: -1;
   }
+
   .register_title {
     align-items: center;
     justify-content: center;
@@ -270,13 +273,13 @@
 @media screen and (min-width: 1200px) {
   .wrapper {
     flex-direction: row;
-
     background: linear-gradient(
       90deg,
-      rgba(231, 234, 242, 1) 50%,
-      rgba(255, 255, 255, 0.4) 50%
+      rgba(231, 234, 242, 1) 40%,
+      rgba(255, 255, 255, 0.4) 60%
     );
   }
+
   .elipseregisterform {
     filter: blur(20px);
   }
@@ -284,11 +287,12 @@
   .register_container {
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
-    padding: 52px 91px 52px 107px;
   }
+
   .text {
     font-size: 20px;
   }
+
   .registerformframe1 {
     position: absolute;
     width: 452px;
@@ -296,11 +300,13 @@
     transform: translateX(-50%);
     z-index: 1;
   }
+
   .register_title {
     align-items: center;
     justify-content: center;
     margin-top: 0;
   }
+
   .box {
     position: relative;
   }
