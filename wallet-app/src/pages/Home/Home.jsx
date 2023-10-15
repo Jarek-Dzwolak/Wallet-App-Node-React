@@ -96,7 +96,7 @@ function Home() {
   return (
     <div className={Styles.balance}>
       <TransactionModal open={openModal} onClose={() => setOpenModal(false)} />
-      <Header />
+      <Header toggleModal={setOpenModal} />
       <div className={Styles.bg}></div>
 
       {showTabletView ? (

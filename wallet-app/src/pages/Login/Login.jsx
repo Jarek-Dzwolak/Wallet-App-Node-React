@@ -63,6 +63,7 @@ function Login() {
           <img className={css.elipse2} src={elipse2} alt="elipse purple" />
           <h2 className={css.title}>Finance App</h2>
         </div>
+
         <div className={css.login_container}>
           <div className={css.login_title}>
             <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
