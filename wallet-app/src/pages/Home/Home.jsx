@@ -15,9 +15,11 @@ import EditModal from '../../components/EditModal/EditModal';
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [openModal, setOpenModal] = useState(false);
-  const [balance, setBalance] = useState(
-    JSON.parse(localStorage.getItem('transactions')) || [],
-  );
+  const savedBalance = localStorage.getItem('transactions');
+  const initialBalance = savedBalance ? JSON.parse(savedBalance) : [];
+
+  const [balance, setBalance] = useState(initialBalance);
+
   window.addEventListener('click', (e) => {
     if (e.target.nodeName === 'BUTTON') {
       setBalance(JSON.parse(localStorage.getItem('transactions')) || []);

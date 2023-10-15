@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "notiflix": "^3.2.6",
+    "react-loader-spinner": "^5.4.5",
+    "zxcvbn": "^4.4.2"
+  }
+}

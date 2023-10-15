@@ -5,8 +5,6 @@ import Login from './pages/Login/Login';
 import PrivateRoute from './privateRoute/PrivateRoute';
 import Loader from './components/Loader/Loader';
 
-
-
 // LazyLoad
 const LazyHome = lazy(() => import('./pages/Home/Home'));
 const LazyStatistic = lazy(() => import('./pages/Statistic/Statistic'));
@@ -17,34 +15,46 @@ function App() {
     <Routes>
       <Route path="/register" element={<RegisterForm />} />
       <Route path="/login" element={<Login />} />
+
       <Route
         path="/home"
         element={
-          <PrivateRoute redirectTo="/login">
-            <Suspense fallback={<Loader />}>
-              <LazyHome />
-            </Suspense>
-          </PrivateRoute>
+          <PrivateRoute
+            redirectTo="/login"
+            component={
+              <Suspense fallback={<Loader />}>
+                <LazyHome />
+              </Suspense>
+            }
+          />
         }
       />
+
       <Route
         path="/statistic"
         element={
-          <PrivateRoute redirectTo="/login">
-            <Suspense fallback={<Loader />}>
-              <LazyStatistic />
-            </Suspense>
-          </PrivateRoute>
+          <PrivateRoute
+            redirectTo="/login"
+            component={
+              <Suspense fallback={<Loader />}>
+                <LazyStatistic />
+              </Suspense>
+            }
+          />
         }
       />
+
       <Route
         path="/currencies"
         element={
-          <PrivateRoute redirectTo="/login">
-            <Suspense fallback={<Loader />}>
-              <LazyCurrencies />
-            </Suspense>
-          </PrivateRoute>
+          <PrivateRoute
+            redirectTo="/login"
+            component={
+              <Suspense fallback={<Loader />}>
+                <LazyCurrencies />
+              </Suspense>
+            }
+          />
         }
       />
     </Routes>

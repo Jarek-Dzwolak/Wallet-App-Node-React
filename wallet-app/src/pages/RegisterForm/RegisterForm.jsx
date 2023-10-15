@@ -112,8 +112,7 @@ function RegisterForm() {
     Notiflix.Notify.info('You deliberately went to the login page.');
   };
 
-   
-   return (
+  return (
     <div className={css.wrapper}>
       <div className={css.box_container}>
         <div className={css.box}>
@@ -124,18 +123,25 @@ function RegisterForm() {
           />
           <h2 className={css.title}>Finance App</h2>
         </div>
-        <img className={css.elipseregisterform} src={elipseregisterform} alt="elipse" />
-        <img className={css.elipse1registerform} src={elipse1registerform} alt="elipse" />
+        <img
+          className={css.elipseregisterform}
+          src={elipseregisterform}
+          alt="elipse"
+        />
+        <img
+          className={css.elipse1registerform}
+          src={elipse1registerform}
+          alt="elipse"
+        />
       </div>
-       
-<div className={css.form_container_background}>
-      <div className={css.register_container}>
-        <div className={css.register_title}>
-          <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
-          <h2 className={css.wallet_title}>Wallet</h2>
-        </div>
 
-        
+      <div className={css.form_container_background}>
+        <div className={css.register_container}>
+          <div className={css.register_title}>
+            <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
+            <h2 className={css.wallet_title}>Wallet</h2>
+          </div>
+
           <div className={css.form_container}>
             <form onSubmit={handleSubmit}>
               <div className={css.input_container_list}>
@@ -147,11 +153,19 @@ function RegisterForm() {
                     name="email"
                     required=""
                   />
-                  <img className={css.input_icon} src={email} alt="email icon" />
-                 </div>
-                 
+                  <img
+                    className={css.input_icon}
+                    src={email}
+                    alt="email icon"
+                  />
+                </div>
+
                 <div className={css.input_container}>
-                  <img className={css.input_icon} src={password} alt="password icon" />
+                  <img
+                    className={css.input_icon}
+                    src={password}
+                    alt="password icon"
+                  />
                   <input
                     className={css.input}
                     type={type}
@@ -160,14 +174,14 @@ function RegisterForm() {
                     required=""
                     onChange={testStrengthPassword}
                   />
-                  <span className={css.show_password} onClick={showHide}>
-                    {type === 'password' ? 'Show' : 'Hide'}
-                  </span>
-                  <span className={css.strength_password} data-score={score}></span>
                 </div>
-      
+
                 <div className={css.input_container}>
-                  <img className={css.input_icon} src={password} alt="password icon" />
+                  <img
+                    className={css.input_icon}
+                    src={password}
+                    alt="password icon"
+                  />
                   <input
                     className={css.input}
                     type={type}
@@ -179,9 +193,12 @@ function RegisterForm() {
                   <span className={css.show_password} onClick={showHide}>
                     {type === 'password' ? 'Show' : 'Hide'}
                   </span>
-                  <span className={css.strength_password} data-score={score}></span>
+                  <span
+                    className={css.strength_password}
+                    data-score={score}
+                  ></span>
                 </div>
-      
+
                 <div className={css.input_container}>
                   <input
                     className={css.input}
@@ -193,11 +210,11 @@ function RegisterForm() {
                   <img className={css.input_icon} src={user} alt="user icon" />
                 </div>
               </div>
-    
+
               <div>
                 <button className={css.register_button}>REGISTER</button>
               </div>
-    
+
               <div className={css.login_container}>
                 <button className={css.login_button} onClick={handleLoginClick}>
                   LOG IN
@@ -205,8 +222,8 @@ function RegisterForm() {
               </div>
             </form>
           </div>
-          </div>
         </div>
+      </div>
     </div>
   );
 }
