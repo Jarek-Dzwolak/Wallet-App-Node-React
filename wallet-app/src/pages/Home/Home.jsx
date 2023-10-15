@@ -3,14 +3,14 @@ import Balance from '../../components/Balance/Balance';
 import Navigation from '../../components/Navigation/Navigation';
 import Header from '../../components/Header/Header';
 import IncomeExpenseTable from '../../components/IncomeExpenseTable/IncomeExpenseTable';
-import PopUpBtn from '../../components/PopUpBtn/PopUpBtn';
+// import PopUpBtn from '../../components/PopUpBtn/PopUpBtn';
 import Curriences from '../../components/Curriences/Curriences';
 import Styles from './Home.module.css';
 import elipse1 from '../../icons/elipse1.svg';
 import elipse2 from '../../icons/elipse2.svg';
 import TransactionModal from '../../components/TransactionModal/TransactionModal';
 import plus from '../../icons/plus.svg';
-import EditModal from '../../components/EditModal/EditModal';
+// import EditModal from '../../components/EditModal/EditModal';
 
 function Home() {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
