@@ -127,14 +127,15 @@ function RegisterForm() {
         <img className={css.elipseregisterform} src={elipseregisterform} alt="elipse" />
         <img className={css.elipse1registerform} src={elipse1registerform} alt="elipse" />
       </div>
-
+       
+<div className={css.form_container_background}>
       <div className={css.register_container}>
         <div className={css.register_title}>
           <img className={css.wallet_icon} src={wallet} alt="wallet icon" />
           <h2 className={css.wallet_title}>Wallet</h2>
         </div>
 
-        <div className={css.form_container_background}>
+        
           <div className={css.form_container}>
             <form onSubmit={handleSubmit}>
               <div className={css.input_container_list}>

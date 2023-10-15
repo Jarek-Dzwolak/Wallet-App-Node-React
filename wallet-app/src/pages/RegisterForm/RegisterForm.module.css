@@ -281,9 +281,11 @@
   }
 
   .form_container_background {
-    background-color: #ffffff66;
-
-    backdrop-filter: blur(25px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 77%;
+    background-color: #eeecec6c;
   }
 
   .wrapper {
@@ -338,6 +340,8 @@
 
   .elipseregisterform {
     z-index: 0;
+    right: -34px;
+    top: -52px;
   }
 
   .elipse1registerform {
@@ -345,6 +349,7 @@
     top: 400px;
     left: -27.33px;
   }
+
   .registerformframe1 {
     width: 452.1px;
     height: 412.6px;
