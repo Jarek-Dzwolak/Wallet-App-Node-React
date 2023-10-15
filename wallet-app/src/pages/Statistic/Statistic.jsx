@@ -165,7 +165,7 @@ const Statistic = () => {
                 <h1>Statistics</h1>
               </div>
 
-              <ChartComponent chartData={{ ...chartData, accountBalance }} />
+              <ChartComponent chartData={{ ...chartData, accountBalance: accountBalance }} />
             </div>
 
             <div className={css.statistic_container_right}>
@@ -191,7 +191,7 @@ const Statistic = () => {
               <CategoryItem
                 labels={chartData.labels}
                 datasets={chartData.datasets}
-                expensesTotal={expenses}
+                expenses={expenses}
                 categoryData={categoryData}
               />
               <div className={css.bg}></div>
