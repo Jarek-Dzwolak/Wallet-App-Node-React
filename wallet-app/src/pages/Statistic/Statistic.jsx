@@ -94,6 +94,15 @@ const Statistic = () => {
     return storedExpenses ? JSON.parse(storedExpenses) : [];
   });
 
+  const income = () => {
+    return balance.reduce((sum, transaction) => {
+      if (transaction.Type === '+') {
+        return sum + parseFloat(transaction.Sum);
+      }
+      return sum;
+    }, 0);
+  };
+
   const handleMonthSelect = (month) => {
     setSelectedMonth(month);
 
@@ -165,7 +174,9 @@ const Statistic = () => {
                 <h1>Statistics</h1>
               </div>
 
-              <ChartComponent chartData={{ ...chartData, accountBalance: accountBalance }} />
+              <ChartComponent
+                chartData={{ ...chartData, accountBalance: accountBalance }}
+              />
             </div>
 
             <div className={css.statistic_container_right}>
@@ -192,6 +203,7 @@ const Statistic = () => {
                 labels={chartData.labels}
                 datasets={chartData.datasets}
                 expenses={expenses}
+                income={income}
                 categoryData={categoryData}
               />
               <div className={css.bg}></div>
