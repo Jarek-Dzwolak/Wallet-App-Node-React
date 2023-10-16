@@ -96,3 +96,19 @@
   width: 5px;
   height: 100%;
 }
+
+.listValuesDate {
+  width: 82px;
+}
+
+.listValuesCategory {
+  width: 105px;
+}
+
+.listValuesComment {
+  width: 75px;
+}
+
+.listValuesSum {
+  width: 0px;
+}
