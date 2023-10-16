@@ -36,12 +36,24 @@ function Home() {
     };
   }, []);
 
+  const handleAddTransaction = (transactionData) => {
+    const currentTransactions = JSON.parse(
+      localStorage.getItem('transactions'),
+    );
+    const updatedTransactions = currentTransactions.push(transactionData);
+    localStorage.setItem('transactions', JSON.stringify(currentTransactions));
+  };
+
   const showTabletView = windowWidth >= 768 && windowWidth < 1280;
   const showDesktopView = windowWidth >= 1280;
 
   return (
     <div className={Styles.balance}>
-      <TransactionModal open={openModal} onClose={() => setOpenModal(false)} />
+      <TransactionModal
+        open={openModal}
+        onClose={() => setOpenModal(false)}
+        handleAddTransaction={handleAddTransaction}
+      />
       <Header toggleModal={setOpenModal} />
       <div className={Styles.bg}></div>
 
@@ -59,7 +71,7 @@ function Home() {
             </div>
           </div>
           <div>
-            <IncomeExpenseTable />
+            <IncomeExpenseTable balance={balance} />
             <div className={Styles.btn}>
               <img
                 src={plus}
@@ -81,7 +93,7 @@ function Home() {
             <Curriences />
           </div>
           <div>
-            <IncomeExpenseTable />
+            <IncomeExpenseTable balance={balance} />
             <div className={Styles.btn}>
               <img
                 src={plus}
@@ -97,7 +109,7 @@ function Home() {
           <div className={Styles.bg}></div>
           <Navigation />
           <Balance balance={balance} />
-          <IncomeExpenseTable />
+          <IncomeExpenseTable balance={balance} />
           <div className={Styles.btn}>
             <img
               src={plus}

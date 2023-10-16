@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './TransactionModal.module.css';
 import close from '../../icons/close.svg';
 
-const TransactionModal = ({ open, onClose }) => {
+const TransactionModal = ({ open, onClose, handleAddTransaction }) => {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [isChecked, setIsChecked] = useState(false);
   const [valueInput, setValueInput] = useState(0.0);
@@ -22,14 +22,6 @@ const TransactionModal = ({ open, onClose }) => {
       Sum: valueInput,
     };
     handleAddTransaction(transactionData);
-  };
-
-  const handleAddTransaction = (transactionData) => {
-    const currentTransactions = JSON.parse(
-      localStorage.getItem('transactions'),
-    );
-    const updatedTransactions = currentTransactions.push(transactionData);
-    localStorage.setItem('transactions', JSON.stringify(currentTransactions));
   };
 
   if (!open) return null;

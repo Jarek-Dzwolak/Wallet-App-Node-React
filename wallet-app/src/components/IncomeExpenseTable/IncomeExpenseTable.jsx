@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './IncomeExpense.module.css';
 import editBtn from '../../icons/editBtn.svg';
 
-const IncomeExpenseTable = () => {
+const IncomeExpenseTable = (balance) => {
   const isWideScreen = window.innerWidth > 768;
   const isDesktopScreen = window.innerWidth > 1279;
 
@@ -41,7 +41,7 @@ const IncomeExpenseTable = () => {
           <li className={styles.desktopItem}></li>
         </ul>
       )}
-      {transactions.map((item, index) => (
+      {balance.balance.map((item, index) => (
         <ul key={index} className={styles.listValues}>
           <li style={{ minWidth: '30px' }}>
             <span>{item.Date}</span>
@@ -78,7 +78,7 @@ const IncomeExpenseTable = () => {
     </div>
   ) : (
     <div className={styles.table}>
-      {transactions.map((item, index) => (
+      {balance.balance.map((item, index) => (
         <ul key={index} className={styles.list}>
           <li className={styles.item}>
             <div
