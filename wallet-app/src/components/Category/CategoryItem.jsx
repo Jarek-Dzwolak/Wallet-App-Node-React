@@ -1,9 +1,18 @@
 import React from 'react';
 import css from './CategoryItem.module.css';
 
-const CategoryItem = ({ labels, datasets, accountBalance, categoryData, expenses }) => {
-
-  const totalBalance = datasets[0].data.reduce((total, amount) => total + amount, 0);
+const CategoryItem = ({
+  labels,
+  datasets,
+  accountBalance,
+  categoryData,
+  expenses,
+  income,
+}) => {
+  const totalBalance = datasets[0].data.reduce(
+    (total, amount) => total + amount,
+    0,
+  );
 
   return (
     <div className={css.categoryContainer}>
@@ -28,7 +37,9 @@ const CategoryItem = ({ labels, datasets, accountBalance, categoryData, expenses
               ></span>
               <div className={css.category}>
                 <div className={css.categoryName}>{label}:</div>
-                <div className={css.categoryAmount}>{datasets[0].data[index]}</div>
+                <div className={css.categoryAmount}>
+                  {datasets[0].data[index]}
+                </div>
               </div>
             </li>
           ))}
@@ -42,14 +53,17 @@ const CategoryItem = ({ labels, datasets, accountBalance, categoryData, expenses
             <span className={css.expenseText}>Expenses:</span>
             <span className={css.expenseValue}>
               {expenses}
-              {categoryData.reduce((total, category) => total + category.amount, 0)}
+              {categoryData.reduce(
+                (total, category) => total + category.amount,
+                0,
+              )}
             </span>
           </li>
           <li>
             <span className={css.incomeText}>Income:</span>
             <span className={css.incomeValue}>
               {accountBalance}
-              {categoryData.reduce((total, category) => total + category.amount, 0)}
+              {income()}
             </span>
           </li>
         </ul>
