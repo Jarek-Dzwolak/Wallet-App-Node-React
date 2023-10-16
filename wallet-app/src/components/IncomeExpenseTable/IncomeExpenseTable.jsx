@@ -44,21 +44,21 @@ const IncomeExpenseTable = () => {
       {transactions.map((item, index) => (
         <ul key={index} className={styles.listValues}>
           <li style={{ minWidth: '30px' }}>
-            <span>{item.Date}</span>
+            <div className={styles.listValuesDate}>{item.Date}</div>
           </li>
           <li>
-            <span>{item.Type}</span>
+            <div className={styles.listValuesType}>{item.Type}</div>
           </li>
           <li>
-            <span>{item.Category}</span>
+            <div className={styles.listValuesCategory}>{item.Category}</div>
           </li>
           <li>
-            <span>{item.Comment}</span>
+            <div className={styles.listValuesComment}>{item.Comment}</div>
           </li>
           <li>
-            <span style={{ color: item.Type === '-' ? 'red' : 'green' }}>
+            <div style={{ color: item.Type === '-' ? 'red' : 'green' }} className={styles.listValuesSum}>
               {item.Sum}
-            </span>
+            </div>
           </li>
           <li className={styles.buttonBox}>
             <button className={styles.editBtn}>
